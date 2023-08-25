@@ -84,7 +84,7 @@ export default function Validation() {
           <div className="imgcont">
             <h2>THE NOTEBOOK</h2>
           </div>
-        </div>{" "}
+        </div>
       </form>
     </div>
   );
