@@ -1,11 +1,11 @@
-
-import './App.css';
-import Validation from './pages/loginsignup';
+import "./App.css";
+import Signup from "./pages/Signup";
+import Validation from "./pages/loginsignup";
 
 function App() {
   return (
     <div>
-      <Validation/>
+      <Signup />
     </div>
   );
 }
