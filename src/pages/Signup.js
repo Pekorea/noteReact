@@ -1,21 +1,19 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 
-export default function Validation(){
-    const [name, setName] = useState("")
-    const [pass, setPassword] = useState("")
-    const [npass, setNpass] = useState("")
-    const [email, setEmail] = useState("")
-    const [view, setView] = useState(true)
+export default function Validation() {
+  const [name, setName] = useState([]);
+  const [pass, setPassword] = useState("");
+  const [npass, setNpass] = useState([]);
+  const [email, setEmail] = useState("");
+  const [view, setView] = useState([]);
 
-    const success = ()=>{toast('Successfully logged in',{duration:3000, icon:'✔👍'})}
-    
-    const handleEmail =(e)=>{
-        setEmail(e.target.value)
-    }
-    const handlePass =(e)=>{
-        setPassword(e.target.value)
-    }
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+  };
 
   const handleChecked = () => {
     setView(!view);
@@ -33,11 +31,22 @@ export default function Validation(){
 
           <div className="valds">
             <div className="maincontvalds">
-              <div className="form">
+              <div className="forms">
                 <div className="headercont">
-                  <h1 className="login">LOGIN</h1>
+                  <h1 className="Signup">SIGNUP</h1>
                 </div>
                 <hr></hr>
+                <div className="emailInputdiv">
+                  <input
+                    type="text"
+                    placeholder=""
+                    className="emailInput"
+                    onChange={handleEmail}
+                    value={email}
+                    required
+                  ></input>
+                  <label>Name</label>
+                </div>
 
                 <div className="inputs">
                   <div className="emailInputdiv">
@@ -75,7 +84,7 @@ export default function Validation(){
                   <div className="logbtndiv">
                     <button className="logbtn" type="submit">
                       {" "}
-                      PROCEED
+                      Welcome
                     </button>
                   </div>
                 </div>
@@ -86,7 +95,7 @@ export default function Validation(){
           <div className="imgcont">
             <h2>THE NOTEBOOK</h2>
           </div>
-        </div>
+        </div>{" "}
       </form>
     </div>
   );

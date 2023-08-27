@@ -60,7 +60,12 @@
       height: 100%;
       width: 50%;
       color: white;
-      background-color: orange;
+      /*background-color: orange;*/
+      background-image: url('../public/notebook1.png');
+      /* background-attachment: fixed; */
+      background-repeat: no-repeat;
+      background-size: cover;
+     
     }
   
     .maincontvalds {
@@ -79,6 +84,17 @@
       width: 500px;
       color: black
     }
+    .forms{
+      gap: 10px;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        height: 600px;
+        background-color: transparent;
+        width: 500px;
+        color: black
+    }
+    
   
     .logbtndiv {
       display: flex;
