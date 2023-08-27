@@ -2,11 +2,11 @@ import {useState} from 'react'
 import {Toaster, toast} from 'react-hot-toast'
 
 export default function Validation(){
-    const [name, setName] = useState([])
-    const [pass, setPassword] = useState([])
-    const [npass, setNpass] = useState([])
-    const [email, setEmail] = useState([])
-    const [view, setView] = useState([])
+    const [name, setName] = useState("")
+    const [pass, setPassword] = useState("")
+    const [npass, setNpass] = useState("")
+    const [email, setEmail] = useState("")
+    const [view, setView] = useState(true)
 
     const success = ()=>{toast('Successfully logged in',{duration:3000, icon:'✔👍'})}
     
