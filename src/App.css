@@ -44,7 +44,7 @@
     }
   
     hr {
-      border: 1px dashed black;
+      border: 1px dashed white;
     }
   
     .valds {
@@ -54,13 +54,26 @@
       width: 50%;
       color: white;
       /*background-color: orange;*/
-      background-image: url('../public/notebook1.png');
-      /* background-attachment: fixed; */
-      background-repeat: no-repeat;
-      background-size: cover;
+      /*background: rgb(41, 18, 18);*/
+      background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
      
     }
+
+    input:focus~label,
+    input:valid~label {
+      font-size: large;
+      color:rgb(141, 138, 138);
+    }
   
+     input:focus,
+     input:focus~label,
+     input:valid~label {
+       
+       top: -15px;
+       
+       transition: .5s ease;
+       
+     }
     .maincontvalds {
       display: flex;
   
@@ -69,7 +82,7 @@
   
     .form {
       gap: 10px;
-      border: 1px solid black;
+      border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
       height: 500px;
@@ -78,14 +91,15 @@
       color: black
     }
     .forms{
+      
       gap: 10px;
-      border: 1px solid black;
+      border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
       height: 60 0px;
       background-color: transparent;
-      width: 500px;
-      color: black
+      width: 400px;
+      color: white;
     
     }
   
@@ -99,17 +113,17 @@
   
     .checkbos {
       position: relative;
-      font-size: smaller;
-      left: 360px;
+      font-size: medium;
+      left: 250px;
       bottom: 40px;
     }
   
     .view {
-      font-size: small;
+      font-size: 10px;
     }
   
     .viewpass {
-      width: 20px;
+      width: 15px;
       height: 15px;
     }
   
@@ -139,7 +153,8 @@
   
     label {
       font-weight: bolder;
-      font-size: large;
+      font-size: medium;
+      transition: .4s ease;
     }
   
     .passwordInputdiv {
@@ -157,14 +172,14 @@
   
     .emailInputdiv label {
       position: absolute;
-      top: -15px;
-      left: 50px;
+      top: 10px;
+      left: 40px;
     }
   
     .passwordInputdiv label {
       position: absolute;
-      top: -15px;
-      left: 50px;
+      top: 10px;
+      left: 40px;
   
     }
   
@@ -175,8 +190,9 @@
       background-color: transparent;
       border: none;
       outline: none;
-      border-bottom: 2px solid black;
+      border-bottom: 2px solid White;
       font-size: medium;
+      color:white;
     }
   
     .inputs {

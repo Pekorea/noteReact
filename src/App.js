@@ -1,5 +1,5 @@
 import "./App.css";
-
+import "./Mindev.css";
 import Signup from "./pages/Signup";
 import Forgotten_password from "./pages/forgottenp";
 import Validation from "./pages/loginsignup";

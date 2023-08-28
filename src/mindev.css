@@ -2,8 +2,326 @@
 
 @media (max-width: 768px) {
     body {
-        color: blue;
+        position: relative;
+        color: black;
         font-family: 'Poppins';
+        background-color: white;
     }
+    .imgcont{
+        display:none;
+        
+    }
+  .mainContainer {
+      display: flex;
+      justify-content: center;
+      height: 100dvh;
+      align-items: center;
+      gap: 1px;
+  }
+  .headercont {
+      display: flex;
+      justify-content: center;
+      height: 20%;
+      font-size: large;
+     
+  }
+  .form {
+      gap: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      height: 500px;
+      background-color: transparent;
+      width: 500px;
+      color: black
+  }
+
+  .forms {
+      gap: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      height: 60 0px;
+      background-color: transparent;
+      width: 400px;
+      color: black
+  }
+   .checkbos {
+       position: relative;
+       font-size: smaller;
+       left: 260px;
+       bottom: 40px;
+   }
+
+   .view {
+       font-size: small;
+   }
+
+   .viewpass {
+       width: 20px;
+       height: 15px;
+   }
+
+   .logbtn {
+       width: 80%;
+       height: 40px;
+       border-radius: 10px;
+       font-size: large;
+       font-weight: bold;
+       cursor: pointer;
+       transition: .2s ease-in;
+       background-color: black;
+       color: white;
+       font-family: 'Montserrat';
+       padding: 10px;
+   }
+
+   .logbtn:hover {
+       color: black;
+       background: white;
+   }
+
+   .logbtn:active {
+       color: white;
+       background-color: green;
+   }
+
+   label {
+       font-weight: bolder;
+       font-size: large;
+   }
+
+   .passwordInputdiv {
+       position: relative;
+       display: flex;
+       justify-content: center;
+   }
+
+   .emailInputdiv {
+       position: relative;
+       margin-top: 20px;
+       display: flex;
+       justify-content: center;
+   }
+
+   .emailInputdiv label {
+       position: absolute;
+       top: 10px;
+       left: 40px;
+   }
+
+   .passwordInputdiv label {
+       position: absolute;
+       top: 10px;
+       left: 40px;
+
+   }
+   .logbtndiv {
+       display: flex;
+       justify-content: center;
+       position: relative;
+       top: -20px;
+       width: 100%;
+   }
+
+   input {
+       width: 80%;
+       height: 45px;
+       font-family: 'Montserrat';
+       background-color: transparent;
+       border: none;
+       outline: none;
+       border-bottom: 2px solid black;
+       font-size: medium;
+       transition: .5s ease-in;
+   }
+
+   .inputs {
+       margin-top: 30px;
+       display: flex;
+
+       gap: 55px;
+       display: flex;
+       flex-direction: column;
+   }
+
+    input:focus,
+    input:focus~label,
+    input:valid~label{
+    color:rgb(58, 0, 58);
+    top:-15px;
+    transition: .5s ease;
+   }
+  
+    /*
+  
+    .imgcont {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: larger;
+      height: 100%;
+      width: 50%;
+      
+      background-color: black;
+      color: white;
+  
+    }
+  
+    .logimage {
+      height: 100%;
+      width: 100%;
+    }
+  
+    .headercont {
+      display: flex;
+      justify-content: center;
+      height: 20%;
+      font-size: large;
+    }
+  
+    hr {
+      border: 1px dashed black;
+    }
+  
+    .valds {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      width: 50%;
+      color: white;
+      
+      background: url('../public/notebook1.png') no-repeat center/cover;
+    
+      filter:brightness(70%)
+     
+    }
+  
+    .maincontvalds {
+      display: flex;
+  
+      align-items: center;
+    }
+  
+    .form {
+      gap: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      height: 500px;
+      background-color: transparent;
+      width: 500px;
+      color: black
+    }
+    .forms{
+      gap: 10px;
+      border: 1px solid black;
+      border-radius: 10px;
+      padding: 10px;
+      height: 60 0px;
+      background-color: transparent;
+      width: 500px;
+      color: black
+    
+    }
+  
+    .logbtndiv {
+      display: flex;
+      justify-content: center;
+      position: relative;
+      top: -20px;
+      width: 100%;
+    }
+  
+    .checkbos {
+      position: relative;
+      font-size: smaller;
+      left: 360px;
+      bottom: 40px;
+    }
+  
+    .view {
+      font-size: small;
+    }
+  
+    .viewpass {
+      width: 20px;
+      height: 15px;
+    }
+  
+    .logbtn {
+      width: 80%;
+      height: 40px;
+      border-radius: 10px;
+      font-size: large;
+      font-weight: bold;
+      cursor: pointer;
+      transition: .2s ease-in;
+      background-color: black;
+      color: white;
+      font-family: 'Montserrat';
+      padding: 10px;
+    }
+  
+    .logbtn:hover {
+      color: black;
+      background: white;
+    }
+  
+    .logbtn:active {
+      color: white;
+      background-color: green;
+    }
+  
+    label {
+      font-weight: bolder;
+      font-size: large;
+    }
+  
+    .passwordInputdiv {
+      position: relative;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .emailInputdiv {
+      position: relative;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+  
+    .emailInputdiv label {
+      position: absolute;
+      top: -15px;
+      left: 50px;
+    }
+  
+    .passwordInputdiv label {
+      position: absolute;
+      top: -15px;
+      left: 50px;
+  
+    }
+  
+    input {
+      width: 80%;
+      height: 45px;
+      font-family: 'Montserrat';
+      background-color: transparent;
+      border: none;
+      outline: none;
+      border-bottom: 2px solid black;
+      font-size: medium;
+    }
+  
+    .inputs {
+      margin-top: 30px;
+      display: flex;
+  
+      gap: 55px;
+      display: flex;
+      flex-direction: column;
+    }*/
 
 }

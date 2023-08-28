@@ -14,6 +14,9 @@ export default function Validation() {
   const handlePass = (e) => {
     setPassword(e.target.value);
   };
+  const handleName = (e) => {
+    setName(e.target.value);
+  };
 
   const handleChecked = () => {
     setView(!view);
@@ -40,9 +43,9 @@ export default function Validation() {
                   <input
                     type="text"
                     placeholder=""
-                    className="emailInput"
-                    onChange={handleEmail}
-                    value={email}
+                    className="nameInput"
+                    onChange={handleName}
+                    value={name}
                     required
                   ></input>
                   <label>Name</label>
@@ -57,6 +60,7 @@ export default function Validation() {
                       onChange={handleEmail}
                       value={email}
                       required
+                      minLength={2}
                     ></input>
                     <label>Email</label>
                   </div>
@@ -77,14 +81,16 @@ export default function Validation() {
                       type="checkbox"
                       onChange={handleChecked}
                     ></input>
-                    <label className="view" htmlFor="viewpass">
+                    <label
+                      className="view"
+                      style={{ color: "white", fontSize: "small" }}
+                    >
                       {view ? `Show` : `Hide`} password
                     </label>
                   </div>
                   <div className="logbtndiv">
                     <button className="logbtn" type="submit">
-                      {" "}
-                      Welcome
+                      REGISTER
                     </button>
                   </div>
                 </div>
