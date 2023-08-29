@@ -6,6 +6,9 @@
       color: white;
     }
   
+    .TN{
+      animation: infini 2s infinite ;
+    }
     .mainContainer {
       display: flex;
       justify-content: space-between;
@@ -37,16 +40,22 @@
   
     .headercont {
       display: flex;
-      justify-content: center;
+      padding-bottom: 28px;
+      flex-direction: column;
       height: 20%;
       font-size: large;
     }
   
     hr {
       border: 1px dashed white;
+      width: 100%;
       
     }
   
+    .Signup{
+      display: flex;
+      justify-content: center;
+    }
     .valds {
       display: flex;
       justify-content: center;
@@ -87,10 +96,10 @@
       border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
-      height: 500px;
+      height: 450px;
       background-color: transparent;
       width: 500px;
-      color: black
+      color: white
     }
     .forms{
       
@@ -98,7 +107,7 @@
       border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
-      height: 60 0px;
+      height: 530px;
       background-color: transparent;
       width: 400px;
       color: white;
@@ -109,7 +118,7 @@
       display: flex;
       justify-content: center;
       position: relative;
-      top: -20px;
+      top: -90px;
       width: 100%;
     }
   
@@ -282,5 +291,20 @@
       justify-content: center;
     }
 
+    @keyframes infini {
+      0% {
+        transform:translateX(30px);
+        
+
+      }
+      50%{
+        transform:translateX(70px);
+        
+      }
+      100% {
+        transform: translateX(100px);
+        color:rgb(112, 109, 109);
+      }
+    }
   
 }

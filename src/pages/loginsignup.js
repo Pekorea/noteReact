@@ -38,7 +38,16 @@ export default function Validation() {
             <div className="maincontvalds">
               <div className="form">
                 <div className="headercont">
-                  <h1 className="login">LOGIN</h1>
+                  <h1
+                    style={{
+                      display: "flex",
+                      justifyContent: "center",
+                      fontSize: "44px",
+                    }}
+                    className="login"
+                  >
+                    LOGIN
+                  </h1>
                 </div>
                 <hr></hr>
 
@@ -96,7 +105,7 @@ export default function Validation() {
           </div>
 
           <div className="imgcont">
-            <h2>THE NOTEBOOK</h2>
+            <h2 className="TN">THE NOTEBOOK</h2>
           </div>
         </div>
       </form>

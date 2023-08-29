@@ -38,8 +38,9 @@ export default function Validation() {
               <div className="forms">
                 <div className="headercont">
                   <h1 className="Signup">SIGNUP</h1>
+                  <hr></hr>
                 </div>
-                <hr></hr>
+
                 <div className="emailInputdiv">
                   <input
                     type="text"
@@ -105,7 +106,7 @@ export default function Validation() {
           </div>
 
           <div className="imgcont">
-            <h2>THE NOTEBOOK</h2>
+            <h2 className="TN">THE NOTEBOOK</h2>
           </div>
         </div>{" "}
       </form>
