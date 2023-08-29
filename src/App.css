@@ -294,13 +294,8 @@
     @keyframes infini {
       0% {
         transform:translateX(30px);
-        
-
       }
-      50%{
-        transform:translateX(70px);
-        
-      }
+    
       100% {
         transform: translateX(100px);
         color:rgb(112, 109, 109);
