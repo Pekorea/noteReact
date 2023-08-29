@@ -1,21 +1,24 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 
-export default function Validation(){
-    const [name, setName] = useState("")
-    const [pass, setPassword] = useState("")
-    const [npass, setNpass] = useState("")
-    const [email, setEmail] = useState("")
-    const [view, setView] = useState(true)
+export default function Validation() {
+  const [name, setName] = useState("");
+  const [pass, setPassword] = useState("");
+  const [npass, setNpass] = useState("");
+  const [email, setEmail] = useState("");
+  const [view, setView] = useState(true);
 
-    const success = ()=>{toast('Successfully logged in',{duration:3000, icon:'✔👍'})}
-    
-    const handleEmail =(e)=>{
-        setEmail(e.target.value)
-    }
-    const handlePass =(e)=>{
-        setPassword(e.target.value)
-    }
+  const success = () => {
+    toast("Successfully logged in", { duration: 3000, icon: "✔👍" });
+  };
+
+  const handleEmail = (e) => {
+    setEmail(e.target.value);
+  };
+  const handlePass = (e) => {
+    setPassword(e.target.value);
+  };
 
   const handleChecked = () => {
     setView(!view);
@@ -63,14 +66,23 @@ export default function Validation(){
                     <label>Password</label>
                   </div>
                   <div className="checkbos">
-                    <input
-                      className="viewpass"
-                      type="checkbox"
-                      onChange={handleChecked}
-                    ></input>
-                    <label className="view" htmlFor="viewpass">
-                      {view ? `Show` : `Hide`} password
-                    </label>
+                    <Link className="linkto" to="/signup">
+                      <p>Signup now?</p>
+                    </Link>
+                    <div>
+                      <input
+                        className="viewpass"
+                        type="checkbox"
+                        onChange={handleChecked}
+                      ></input>
+                      <label
+                        style={{ color: "white", fontSize: "small" }}
+                        className="view"
+                        htmlFor="viewpass"
+                      >
+                        {view ? `Show` : `Hide`} password
+                      </label>
+                    </div>
                   </div>
                   <div className="logbtndiv">
                     <button className="logbtn" type="submit">

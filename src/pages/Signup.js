@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 export default function Validation() {
   const [name, setName] = useState("");
@@ -23,7 +24,7 @@ export default function Validation() {
   };
   const handlesub = (e) => {
     e.preventDefault();
-    toast("Successfully logged in", { duration: 3000, icon: "✔" });
+    toast("Successfully Registered", { duration: 3000, icon: "✔" });
   };
 
   return (
@@ -60,7 +61,6 @@ export default function Validation() {
                       onChange={handleEmail}
                       value={email}
                       required
-                      minLength={2}
                     ></input>
                     <label>Email</label>
                   </div>
@@ -76,18 +76,24 @@ export default function Validation() {
                     <label>Password</label>
                   </div>
                   <div className="checkbos">
-                    <input
-                      className="viewpass"
-                      type="checkbox"
-                      onChange={handleChecked}
-                    ></input>
-                    <label
-                      className="view"
-                      style={{ color: "white", fontSize: "small" }}
-                    >
-                      {view ? `Show` : `Hide`} password
-                    </label>
+                    <Link className="linkto" to="/">
+                      <p>Login?</p>
+                    </Link>
+                    <div>
+                      <input
+                        className="viewpass"
+                        type="checkbox"
+                        onChange={handleChecked}
+                      ></input>
+                      <label
+                        className="view"
+                        style={{ color: "white", fontSize: "small" }}
+                      >
+                        {view ? `Show` : `Hide`} password
+                      </label>
+                    </div>
                   </div>
+
                   <div className="logbtndiv">
                     <button className="logbtn" type="submit">
                       REGISTER
