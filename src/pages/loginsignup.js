@@ -78,6 +78,7 @@ export default function Validation() {
                     <Link className="linkto" to="/signup">
                       <p>Signup now?</p>
                     </Link>
+                    <Link to="/forgottenp"> </Link>
                     <div>
                       <input
                         className="viewpass"

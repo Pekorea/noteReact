@@ -34,7 +34,7 @@ export default function Forgotten_password() {
                 required
                 className="Einput"
               ></input>
-              <label className="Elabel">Email:</label>
+              <label className="Elabel">EMAIL</label>
             </div>
 
             <div className="btndiv">
@@ -45,7 +45,7 @@ export default function Forgotten_password() {
           </div>
         </form>
         <div className="imgcontt">
-          <h2>THE NOTEBOOK</h2>
+          <h2 className="TN">THE NOTEBOOK</h2>
         </div>
       </div>
     </div>

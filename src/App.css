@@ -98,7 +98,7 @@
       padding: 10px;
       height: 450px;
       background-color: transparent;
-      width: 500px;
+      width: 400px;
       color: white
     }
     .forms{
@@ -250,7 +250,29 @@
       background-color: black;
     }
     .Einput{
-      border:2px solid black
+      border-bottom:2px solid black;
+      background-color: transparent;
+      height: 40px;
+    }
+    .Einput:invalid~label {
+      top: -15px;
+    }
+  
+    .ediv label{
+     position: absolute;
+     color:black;
+     left:3px;
+    }
+    .Einput:focus,
+    .Einput:valid{
+      border-bottom: 2px solid grey;
+    }
+    .ediv{
+      position: relative;
+      top:20px;
+      left:10%;
+      width:100%;
+      height: 20%;
     }
     .forp{
       border: 2px solid white;
@@ -260,10 +282,10 @@
     }
     .btndiv{
       position: relative;
-      top:80px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+      top:65px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       width:100%;
     }
     .subbutton{
@@ -279,7 +301,7 @@
 
     }
     .subbutton:hover{
-      background: linear-gradient(to left, rgb(65, 8, 8) 0%, #9e3939 50%, rgb(59, 0, 0) 100%);
+      background: grey;
       color:black
     }
     .subbutton:active{

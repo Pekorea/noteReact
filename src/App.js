@@ -19,6 +19,9 @@ function App() {
           <Route path="/signup">
             <Route index element={<Signup />} />
           </Route>
+          <Route path="/forgottenp">
+            <Route index element={<Forgotten_password />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </div>
