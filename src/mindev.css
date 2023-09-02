@@ -2,21 +2,41 @@
 
 @media (max-width: 768px) {
     body {
-        position: relative;
+      margin-top: 0px;
+      padding-top: 0px;
+        padding:3px;
         color: black;
         font-family: 'Poppins';
         background-color: white;
     }
     .imgcont{
-        display:none;
+       display: none;
         
     }
-  .mainContainer {
+
+    .nothead{
+      position: relative;
+      left:10px;
+      top:30px;
       display: flex;
+      justify-content: center;
+    }
+  .nothead_div{
+    width:100%;
+    background-color: black;
+    color:white;
+    font-family: 'Montserrat';
+    height:100px;
+    }
+  .mainContainer {
+    background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
+      display: flex;
+      flex-direction: column;
       justify-content: center;
       height: 100dvh;
       align-items: center;
       gap: 1px;
+      width:100%;
   }
   .headercont {
       display: flex;
@@ -27,33 +47,38 @@
   }
   .form {
       gap: 10px;
-      border: 1px solid black;
+      border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
-      height: 500px;
+      height: 400px;
       background-color: transparent;
-      width: 500px;
-      color: black
+      width: 300px;
+      color: white
   }
 
   .forms {
       gap: 10px;
-      border: 1px solid black;
+      border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
       height: 60 0px;
       background-color: transparent;
       width: 400px;
-      color: black
+      color: white
   }
    .checkbos {
        position: relative;
        font-size: smaller;
-       left: 260px;
+       left: 0px;
+       display: flex;
+       justify-content: space-around;
        bottom: 40px;
+       
+
    }
 
    .view {
+    
        font-size: small;
    }
 
@@ -89,6 +114,7 @@
    label {
        font-weight: bolder;
        font-size: large;
+       transition: .2s ease-in;
    }
 
    .passwordInputdiv {
@@ -120,18 +146,19 @@
        display: flex;
        justify-content: center;
        position: relative;
-       top: -20px;
+       bottom: 90px;
        width: 100%;
    }
 
    input {
+    color:white;
        width: 80%;
        height: 45px;
        font-family: 'Montserrat';
        background-color: transparent;
        border: none;
        outline: none;
-       border-bottom: 2px solid black;
+       border-bottom: 2px solid white;
        font-size: medium;
        transition: .5s ease-in;
    }
@@ -145,13 +172,22 @@
        flex-direction: column;
    }
 
+   input:focus~label,
+   input:valid~label {
+     font-size: large;
+     color:rgb(141, 138, 138);
+   }
+ 
     input:focus,
     input:focus~label,
-    input:valid~label{
-    color:rgb(58, 0, 58);
-    top:-15px;
-    transition: .5s ease;
-   }
+    input:valid~label {
+      top: -15px;
+      transition: .5s ease;
+      
+    }
+    input:invalid~label{
+     top:-15px;
+    }
   
     /*
   

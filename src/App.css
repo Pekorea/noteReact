@@ -6,6 +6,9 @@
       color: white;
     }
   
+    .nothead_div{
+      display: none;
+    }
     .TN{
       animation: infini 2s infinite ;
     }
@@ -253,6 +256,7 @@
       border-bottom:2px solid black;
       background-color: transparent;
       height: 40px;
+      text-align:center;
     }
     .Einput:invalid~label {
       top: -15px;
