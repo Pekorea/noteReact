@@ -1,105 +1,94 @@
-import { useState } from "react";
-import { Toaster, toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
-import Header from "../components/header";
+import { useState } from 'react';
+import { Toaster, toast } from 'react-hot-toast';
+import { Link } from 'react-router-dom';
+import Header from '../components/header';
+import AuthProvided from '../lib/auth';
 
+export default function SignUp() {
+  const [name, setName] = useState('');
+  const [pass, setPassword] = useState('');
 
-export default function Validation() {
-  const [name, setName] = useState("");
-  const [pass, setPassword] = useState("");
-  const [npass, setNpass] = useState("");
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState('');
   const [view, setView] = useState(true);
+  const { siginUp } = AuthProvided();
 
-  const handleEmail = (e) => {
-    setEmail(e.target.value);
-  };
-  const handlePass = (e) => {
-    setPassword(e.target.value);
-  };
-  const handleName = (e) => {
-    setName(e.target.value);
-  };
-
-  const handleChecked = () => {
-    setView(!view);
-  };
-  const handlesub = (e) => {
+  const handlesub = async (e) => {
     e.preventDefault();
-    toast("Successfully Registered", { duration: 3000, icon: "✔" });
+    siginUp(email, pass);
+    toast('Successfully Registered', { duration: 3000, icon: '✔' });
   };
 
   return (
-    <div className="cont">
-      <Header/>
+    <div className='cont'>
+      <Header />
       <form onSubmit={handlesub}>
-        <div className="mainContainer">
+        <div className='mainContainer'>
           <Toaster />
 
-          <div className="valds">
-            <div className="maincontvalds">
-              <div className="forms">
-                <div className="headercont">
-                  <h1 className="Signup">SIGNUP</h1>
+          <div className='valds'>
+            <div className='maincontvalds'>
+              <div className='forms'>
+                <div className='headercont'>
+                  <h1 className='Signup'>SIGNUP</h1>
                   <hr></hr>
                 </div>
 
-                <div className="emailInputdiv">
+                <div className='emailInputdiv'>
                   <input
-                    type="text"
-                    placeholder=""
-                    className="nameInput"
-                    onChange={handleName}
+                    type='text'
+                    placeholder=''
+                    className='nameInput'
+                    onChange={(e) => setName(e.target.value)}
                     value={name}
                     required
                   ></input>
                   <label>Name</label>
                 </div>
 
-                <div className="inputs">
-                  <div className="emailInputdiv">
+                <div className='inputs'>
+                  <div className='emailInputdiv'>
                     <input
-                      type="email"
-                      placeholder=""
-                      className="emailInput"
-                      onChange={handleEmail}
+                      type='email'
+                      placeholder=''
+                      className='emailInput'
+                      onChange={(e) => setEmail(e.target.value)}
                       value={email}
                       required
                     ></input>
                     <label>Email</label>
                   </div>
 
-                  <div className="passwordInputdiv">
+                  <div className='passwordInputdiv'>
                     <input
                       value={pass}
-                      onChange={handlePass}
-                      type={view ? "password" : "text"}
-                      className="passwordInput"
+                      onChange={(e) => setPassword(e.target.value)}
+                      type={view ? 'password' : 'text'}
+                      className='passwordInput'
                       required
                     ></input>
                     <label>Password</label>
                   </div>
-                  <div className="checkbos">
-                    <Link className="linkto" to="/">
+                  <div className='checkbos'>
+                    <Link className='linkto' to='/'>
                       <p>Login?</p>
                     </Link>
-                    <div>
+                    {/* <div>
                       <input
-                        className="viewpass"
-                        type="checkbox"
+                        className='viewpass'
+                        type='checkbox'
                         onChange={handleChecked}
                       ></input>
                       <label
-                        className="view"
-                        style={{ color: "white", fontSize: "small" }}
+                        className='view'
+                        style={{ color: 'white', fontSize: 'small' }}
                       >
                         {view ? `Show` : `Hide`} password
                       </label>
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div className="logbtndiv">
-                    <button className="logbtn" type="submit">
+                  <div className='logbtndiv'>
+                    <button className='logbtn' type='submit'>
                       REGISTER
                     </button>
                   </div>
@@ -108,10 +97,10 @@ export default function Validation() {
             </div>
           </div>
 
-          <div className="imgcont">
-            <h2 className="TN">THE NOTEBOOK</h2>
+          <div className='imgcont'>
+            <h2 className='TN'>THE NOTEBOOK</h2>
           </div>
-        </div>{" "}
+        </div>{' '}
       </form>
     </div>
   );
