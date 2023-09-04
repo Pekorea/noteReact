@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
+import Header from "../components/header";
+
 
 export default function Validation() {
   const [name, setName] = useState("");
@@ -28,7 +30,8 @@ export default function Validation() {
   };
 
   return (
-    <div>
+    <div className="cont">
+      <Header/>
       <form onSubmit={handlesub}>
         <div className="mainContainer">
           <Toaster />

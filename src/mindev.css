@@ -4,20 +4,26 @@
     body {
       margin-top: 0px;
       padding-top: 0px;
-        padding:3px;
+        padding:1px;
         color: black;
         font-family: 'Poppins';
-        background-color: white;
+        
     }
     .imgcont{
        display: none;
         
+    }
+    .cont{
+      padding-top: 0px;
+      margin-top: 0px;
+      background-color: aqua;
     }
 
     .nothead{
       position: relative;
       left:10px;
       top:30px;
+      font-size: 30px;
       display: flex;
       justify-content: center;
     }
@@ -40,20 +46,29 @@
   }
   .headercont {
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       height: 20%;
       font-size: large;
+      padding-bottom: 20px;
      
+  }
+  .Signup{
+    display: flex;
+    justify-content: center;
+  }
+  hr {
+    border: 1px dashed white;
+    width: 100%;
   }
   .form {
       gap: 10px;
       border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
-      height: 400px;
+      height: 440px;
       background-color: transparent;
       width: 300px;
-      color: white
+      color: white;
   }
 
   .forms {
@@ -61,9 +76,9 @@
       border: 1px solid white;
       border-radius: 10px;
       padding: 10px;
-      height: 60 0px;
+      height: 520px;
       background-color: transparent;
-      width: 400px;
+      width: 300px;
       color: white
   }
    .checkbos {
@@ -73,12 +88,12 @@
        display: flex;
        justify-content: space-around;
        bottom: 40px;
-       
-
    }
 
-   .view {
-    
+   .linkto{
+    color:green;
+   }
+   .view{    
        font-size: small;
    }
 
@@ -98,7 +113,8 @@
        background-color: black;
        color: white;
        font-family: 'Montserrat';
-       padding: 10px;
+       padding-bottom: 25px;
+       padding-top: 10px;
    }
 
    .logbtn:hover {
@@ -133,15 +149,16 @@
    .emailInputdiv label {
        position: absolute;
        top: 10px;
-       left: 40px;
+       left: 30px;
    }
 
    .passwordInputdiv label {
        position: absolute;
        top: 10px;
-       left: 40px;
+       left: 30px;
 
    }
+  
    .logbtndiv {
        display: flex;
        justify-content: center;
@@ -166,7 +183,6 @@
    .inputs {
        margin-top: 30px;
        display: flex;
-
        gap: 55px;
        display: flex;
        flex-direction: column;

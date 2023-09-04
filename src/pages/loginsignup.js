@@ -30,7 +30,7 @@ export default function Validation() {
   };
 
   return (
-    <div>
+    <div className="cont">
       <Header/>
       <form onSubmit={handlesub}>
         
@@ -78,10 +78,9 @@ export default function Validation() {
                     <label>Password</label>
                   </div>
                   <div className="checkbos">
-                    <Link className="linkto" to="/signup">
-                      <p>Signup now?</p>
+                    <Link className="linkto" to="/forgottenp">
+                      <p>Forgot Password?</p>   
                     </Link>
-                    <Link to="/forgottenp"> </Link>
                     <div>
                       <input
                         className="viewpass"
@@ -105,6 +104,9 @@ export default function Validation() {
                   </div>
                 </div>
               </div>
+              <Link className="linkto" to="/signup">
+                  <p>Dont have an account? Signup now</p>
+              </Link>
             </div>
           </div>
 

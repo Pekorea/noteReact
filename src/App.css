@@ -9,9 +9,9 @@
     .nothead_div{
       display: none;
     }
-    .TN{
+   /* .TN{
       animation: infini 2s infinite ;
-    }
+    }*/
     .mainContainer {
       display: flex;
       justify-content: space-between;
@@ -52,7 +52,6 @@
     hr {
       border: 1px dashed white;
       width: 100%;
-      
     }
   
     .Signup{

@@ -3,9 +3,9 @@
 const Header = () => {
   return (
     <div className="nothead_div">
-        <h1 className="nothead">
+        <header className="nothead">
             THE NOTEBOOK
-        </h1>
+        </header>
     </div>
   )
 }

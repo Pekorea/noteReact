@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Forgotten_password from "./pages/forgottenp";
 import Validation from "./pages/loginsignup";
+import Home from "./pages/home";
 
 function App() {
   return (
@@ -21,6 +22,10 @@ function App() {
           </Route>
           <Route path="/forgottenp">
             <Route index element={<Forgotten_password />} />
+          </Route>
+
+          <Route path="/home">
+            <Route index element={<Home />} />
           </Route>
         </Routes>
       </BrowserRouter>

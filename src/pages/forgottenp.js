@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Toaster, toast } from "react-hot-toast";
+import Header from "../components/header";
 
 export default function Forgotten_password() {
   const [email, setEmail] = useState("");
@@ -15,7 +16,8 @@ export default function Forgotten_password() {
     });
   };
   return (
-    <div>
+    <div className="cont">     
+     <Header/>
       <Toaster />
       <div className="mainCont">
         <form className="fpdiv" onSubmit={handlefp}>
