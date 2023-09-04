@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import Header from "../components/header";
+import { Auth } from "firebase/auth";
+import {createUserWithEmailAndPassword} from 'firebase/auth'
 
 export default function Validation() {
   const [name, setName] = useState("");
@@ -39,6 +41,7 @@ export default function Validation() {
 
           <div className="valds">
             <div className="maincontvalds">
+              <div>
               <div className="form">
                 <div className="headercont">
                   <h1
@@ -104,9 +107,15 @@ export default function Validation() {
                   </div>
                 </div>
               </div>
-              <Link className="linkto" to="/signup">
-                  <p>Dont have an account? Signup now</p>
+              <Link style={{
+                display:'flex',
+                justifyContent:'center',
+                paddingTop:'10px'
+                
+                }} className="linkto" to="/signup">
+                  <p>DON'T HAVE AN ACCOUNT? SIGN UP</p>
               </Link>
+              </div>
             </div>
           </div>
 

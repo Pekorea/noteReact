@@ -16,7 +16,7 @@
     .cont{
       padding-top: 0px;
       margin-top: 0px;
-      background-color: aqua;
+
     }
 
     .nothead{
@@ -33,6 +33,8 @@
     color:white;
     font-family: 'Montserrat';
     height:100px;
+    position: sticky;
+    top:0px;
     }
   .mainContainer {
     background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
