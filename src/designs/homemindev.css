@@ -23,6 +23,14 @@
         gap:15px;
         
     }
+    .searchIcon{
+        
+        position: absolute;
+        right:90px;
+        top:20px;
+        height: 30px;
+        width:2rem;
+    }
     .anotes{
         margin-top: 20px;
         border: 2px solid white;

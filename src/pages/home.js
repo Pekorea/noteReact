@@ -1,6 +1,7 @@
 import '../designs/homemindev.css'
 import '../designs/home.css'
 import {PopupboxContainer,PopupboxManager} from 'react-popupbox'
+
 import Navbar from '../components/navbar'
 import { Toaster, toast } from 'react-hot-toast'
 import {GrAdd} from 'react-icons/gr'
@@ -38,7 +39,7 @@ function Home() {
               <h3>Title</h3>
               <hr className='hrN'></hr>
               <p>Today, i went to the farm, and i saw a lion.</p>
-              </div>
+              </div> 
              
             </div>
 

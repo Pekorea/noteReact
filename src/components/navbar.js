@@ -1,7 +1,9 @@
 import {TiThMenu} from 'react-icons/ti'
+import {BiSearchAlt} from 'react-icons/bi'
 
 const Navbar = () => {
-  console.log('I love love')
+
+  
   return (
     <div className='navbar'>
         <header className='navbar-head'>
@@ -14,6 +16,7 @@ const Navbar = () => {
             
             >THE NOTEBOOK</h1>
         </header>
+        <BiSearchAlt className='searchIcon'/>
         <ul className='list-items'>
           <li>About</li>
          
