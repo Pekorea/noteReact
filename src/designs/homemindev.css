@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Orbitron&family=Poppins&family=REM:ital@1&display=swap');
+
 @media (max-width:760px) {
     body{
         font-family: 'Montserrat';
@@ -11,20 +13,116 @@
         display: flex;
         justify-content: center;
     }
+    .cont{
+        padding: 0px;
+        margin: 0px;
+    }
+    .navbar-head{
+        display: flex;
+        justify-content: space-around;
+        gap:15px;
+        
+    }
+    .anotes{
+        margin-top: 20px;
+        border: 2px solid white;
+        border-radius: 10px;        
+        background-color: transparent;
+        width:85%;
+        padding:15px;
+        position: relative;
+    }
+    .abdiv{
+        position: absolute;
+        bottom:100px;
+        right:20px;
+    }
+    .addbutton{
+        position: sticky;
+        bottom:10px;
+        background-color: white;
+        width:50px;
+        height: 50px;
+        color:white;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+    .menubar{
+        position: relative;
+        top:23px;
+        left:10px;
+        width:50px;
+        height: 24px;
+        display: flex;
+        justify-content: center;
+        cursor: pointer;
+        transition: .4s;
+    }
+    .menubar:hover{
+        background-color: white;
+        border-radius: 50px;
+        color:black;
+    }
+    .list-items{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        position: relative;
+        top:10px;
+        padding-right: 10px;
+    }
     .navbar{
+        display: flex;
+        justify-content: space-between;
         width: 100%;
         height:70px;
         background-color: black;
         padding-top: 0px;
         margin-top: 0px;
+        font-family: 'Orbitron';
     }
     .notescont{
-        
+        display: flex;
+        justify-content: center;
         background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
-        border: 1px solid;
         height: 100dvh;
-        width:75%;
+        width:100%;
         padding: 10px;
+    }
+    .notes{
+        background-color: white;
+        color:black;
+        position: relative;
+        font-family: 'REM';
+        border-radius: 15px;
+        padding-left: 5px;
+        height:85px;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        transition: .5s;
+        font-size: 14px;
+
+        
+    }
+    .notes:hover{
+        filter: brightness(75%);
+    }
+    .acN{
+        position: relative;
+        bottom: 10px;
+    }
+    .hrN{
+        width:100%;
+        border: 2px solid white;
+    }
+    .notes h3{
+        padding-left: 10px;
+        
+    }
+    .notes p{
+        position: absolute;
+        top:45px;
     }
         
 }
