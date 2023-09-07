@@ -5,10 +5,13 @@ import { useState } from 'react'
 const Navbar = () => {
   const [searchT,setSearchT]=useState(false);
   const [onSearch,setOnSearch]=useState("");
-  //const [search,setSearch]=useState("");
+  const [toggle,setToggle]=useState(false);
 
   const searching =(event)=>{
     setOnSearch(event.target.value)
+  }
+  const toggleOpen=()=>{
+    setToggle(!toggle)
   }
   
   const isOpen =()=>{
@@ -16,11 +19,12 @@ const Navbar = () => {
   }
 
   return (
-    <div>
+    <div className="containerr" >
+      
     <div className='navbar'>
       <div className='navcont'>
         <header className='navbar-head'>
-          <TiThMenu className='menubar'/>
+          <TiThMenu onClick={toggleOpen} className='menubar'/>
           <h1 style={{
             fontSize:'larger',
             position:'relative',
@@ -32,8 +36,6 @@ const Navbar = () => {
         <button onClick={isOpen} className='searchIcondiv'><BiSearchAlt className='searchIcon'/></button>
         <ul className='list-items'>
           <li>About</li>
-         
-
         </ul>
       </div>
         
@@ -42,12 +44,21 @@ const Navbar = () => {
           type='search'
           value={onSearch}
           onChange={searching}
-
+          placeholder='Search notes...'
           ></input>
           
         </div>
         
     </div>
+    <div className={toggle?'hsidebarcont':'hsidebarconts'}>
+        <ul className='sb-items'>
+          <li>Your Account</li>
+          <li>Favourites</li>
+          <li>Locked notes</li>
+          <li>Logout</li>
+
+        </ul>
+      </div>
     </div>
   )
 }

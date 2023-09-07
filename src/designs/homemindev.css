@@ -8,6 +8,44 @@
         color:white;
     
     }
+    .hsidebarcont{
+      position: absolute;
+      z-index: 1000;
+        transition: .5s ;
+        background-color: black;
+        border-radius: 10px;
+        height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        color:white;
+        width: 12rem;
+        font-size: 15px;
+    }
+    .hsidebarconts{
+        display: none;
+    }
+    .sb-items{
+          list-style: none;
+          display: flex;
+          flex-direction: column;
+          gap:10px;
+
+    }
+    .sb-items li{
+        border-radius: 10px;
+        padding:0px;
+         width:100%;
+         height: 40px;
+         cursor: pointer;
+    }
+    .sb-items li:hover{
+        background-color: white;
+        color:black;
+       
+    }
+    .containerr{
+        position: relative;
+    }
     .mainNc{
        
         display: flex;
