@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
-import { auth } from './firebase';
+import { useState, useEffect } from "react";
+import { auth } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from 'firebase/auth';
-import { addUser } from './helper';
+} from "firebase/auth";
+import { addUser } from "./helper";
 
 export default function AuthProvided() {
   const [user, setUser] = useState(null);
@@ -21,7 +21,7 @@ export default function AuthProvided() {
       setUser(userInfo.user.uid);
       await addUser(userInfo.user.uid);
     } catch {
-      console.error('Error signing in with password and email');
+      console.error("Error signing in with password and email");
     }
   };
 
@@ -34,7 +34,7 @@ export default function AuthProvided() {
       );
       setUser(signInUser.user.uid);
     } catch {
-      console.log('something went wrong');
+      console.log("something went wrong");
     }
   };
   const signOutF = async () => {
@@ -52,7 +52,7 @@ export default function AuthProvided() {
         setUser(null);
       }
     });
-    return unsubscribe;
+    return () => unsubscribe;
   }, []);
 
   return {
