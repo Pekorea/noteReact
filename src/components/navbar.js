@@ -1,6 +1,9 @@
 import {TiThMenu} from 'react-icons/ti'
 import {BiSearchAlt} from 'react-icons/bi'
 import { useState } from 'react'
+import { BsFillBookmarkHeartFill} from 'react-icons/bs'
+import {AiFillLock} from 'react-icons/ai'
+import { LuLogOut} from 'react-icons/lu'
 
 const Navbar = () => {
   const [searchT,setSearchT]=useState(false);
@@ -52,10 +55,10 @@ const Navbar = () => {
     </div>
     <div className={toggle?'hsidebarcont':'hsidebarconts'}>
         <ul className='sb-items'>
-          <li>Your Account</li>
-          <li>Favourites</li>
-          <li>Locked notes</li>
-          <li>Logout</li>
+          <li><div><img className='profimg' src='notebook1.png'></img></div>Account</li>
+          <li><div><BsFillBookmarkHeartFill/></div>Favourites</li>
+          <li><div><AiFillLock/></div>Locked notes</li>
+          <li><div><LuLogOut/></div>Logout</li>
 
         </ul>
       </div>

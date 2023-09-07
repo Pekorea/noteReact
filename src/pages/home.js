@@ -1,13 +1,24 @@
 import '../designs/homemindev.css'
 import '../designs/home.css'
 import {PopupboxContainer,PopupboxManager} from 'react-popupbox'
-
 import Navbar from '../components/navbar'
 import { Toaster, toast } from 'react-hot-toast'
 import {GrAdd} from 'react-icons/gr'
-
+import { useState } from 'react'
+import {Link} from 'react-router-dom'
 
 function Home() {
+  const [toggle,setToggle]= useState("")
+
+  const newForm=()=>{
+    
+  }
+  
+  /*
+  const closePopupbox = () => {
+    PopupboxManager.close();
+  };
+
   const openPopupbox = () => {
     const content = (
       <div>
@@ -17,11 +28,9 @@ function Home() {
     );
 
     PopupboxManager.open({ content });
-  };
+  };*/
 
-  const closePopupbox = () => {
-    PopupboxManager.close();
-  };
+  
 
   return (
     <div className="cont">
@@ -45,7 +54,7 @@ function Home() {
 
             
             <div className='abdiv'>
-              <button className='addbutton' onClick={openPopupbox}><GrAdd/></button>
+              <Link to='/noteform'><button className='addbutton' ><GrAdd/></button></Link>
             </div>
             
           </div>
