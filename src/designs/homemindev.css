@@ -24,12 +24,50 @@
         
     }
     .searchIcon{
-        
+        height: 30px;
+        width:2rem;
+        color:white;
+    }
+    .searchIcondiv{
+        cursor: pointer;
+        outline: none;
+        border:none;
+        background-color: transparent;
         position: absolute;
         right:90px;
         top:20px;
         height: 30px;
         width:2rem;
+    }
+    .searchbar{
+        display: none;
+        height:0px;
+    }
+    .searchBar{
+        padding-top:5px;
+        position: relative;
+        width: 100%;
+        height:60px;
+        /*animation:grow 0.5s linear;*/
+        background-color: black;
+        color:white;
+        display: flex;
+        justify-content: center;
+        transition: .5s;
+    }
+   /* @keyframes grow{
+        0%{
+            height:0px;
+        }
+    
+        100%{
+            height: 60px;
+        }
+    }*/
+    .searchBar input{
+       text-align: center;
+        border:2px solid white;
+        border-radius: 15px;
     }
     .anotes{
         margin-top: 20px;
@@ -81,7 +119,14 @@
     }
     .navbar{
         display: flex;
+        flex-direction: column;
+        transition: .4s ease-out;
+       
+    }
+    .navcont{
+        display: flex;
         justify-content: space-between;
+        background-color: red;
         width: 100%;
         height:70px;
         background-color: black;
