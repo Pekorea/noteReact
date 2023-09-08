@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Orbitron&family=Poppins&family=REM:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat&family=PT+Serif&family=Poppins&family=Roboto+Mono&display=swap');
 @media (min-width: 769px) {
     body {
@@ -6,9 +7,11 @@
       color: white;
     }
   
-    .TN{
-      animation: infini 2s infinite ;
+    .cont{
+      margin-top: 0px;
+      padding-top: 0px;
     }
+    
     .mainContainer {
       display: flex;
       justify-content: space-between;
@@ -21,15 +24,16 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      font-size: 30px;
+      font-size: 25px;
       height: 100%;
       width: 50%;
+      
       /*background:linear-gradient(to left,black, white);
       background-attachment: fixed;
       background-repeat: no-repeat;*/
       background-color: black;
       color: white;
-      font-family: 'Black Ops One';
+      font-family: 'Orbitron';
   
     }
   

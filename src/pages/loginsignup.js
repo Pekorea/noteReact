@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {useNavigate} from 'react-router'
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import Header from "../components/header";
@@ -15,9 +16,7 @@ export default function Validation() {
   const [view, setView] = useState(true);
   const { signIn } = AuthProvided();
 
-  const success = () => {
-    toast("Successfully logged in", { duration: 3000, icon: "✔👍" });
-  };
+  const nav = useNavigate();
 
   const handleEmail = (e) => {
     setEmail(e.target.value);
@@ -30,9 +29,31 @@ export default function Validation() {
     setView(!view);
   };
   const handlesub = (e) => {
-    e.preventDefault();
-    signIn(email, pass);
-    toast("Successfully logged in", { duration: 3000, icon: "✔" });
+  e.preventDefault();
+  signIn(email, pass)
+  /*
+  .then((userCredential) => {
+    const user = userCredential.user;
+    if(user && userCredential){
+      
+      toast("Successfully logged in", { duration: 3000, icon: "✔" });
+      setTimeout(() => {
+          nav('/home');
+          }, 3000); 
+    }
+    else{
+      toast("Wrong password or email", {duration:2000,icon:'❌❌'});
+    }
+  })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      if (errorCode === "auth/user-not-found") {
+        toast("User does not exist",{duration:2000,icon:'👀👀'});
+      } else {
+        console.log("Login failed: " + errorMessage);
+      }
+    });*/
   };
 
   return (

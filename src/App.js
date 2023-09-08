@@ -8,6 +8,7 @@ import Validation from './pages/loginsignup';
 import Home from './pages/home';
 import AuthProvider from './lib/authProvider';
 import Notesform from './pages/notesform';
+import ErrorPage from './pages/error';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             {/* Default route */}
             <Route path='/'>
               <Route index element={<Validation />} />
+              
             </Route>
 
             <Route path='/noteform'>
@@ -25,7 +27,7 @@ function App() {
             </Route>
 
             {/* Signup route */}
-            <Route path='/signup'>
+            <Route path='/signup' errorElement={<ErrorPage/>}>
               <Route index element={<Signup />} />
             </Route>
             <Route path='/forgottenp'>
