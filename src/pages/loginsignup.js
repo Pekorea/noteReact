@@ -1,5 +1,5 @@
-import { useState } from "react";
-import {useNavigate} from 'react-router'
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import Header from "../components/header";
@@ -7,6 +7,7 @@ import { Auth } from "firebase/auth";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import AuthProvided from "../lib/auth";
+import { error } from "../lib/error";
 
 export default function Validation() {
   const [name, setName] = useState("");
@@ -14,10 +15,15 @@ export default function Validation() {
   const [npass, setNpass] = useState("");
   const [email, setEmail] = useState("");
   const [view, setView] = useState(true);
-  const { signIn } = AuthProvided();
+  const [isloading, setLoading] = useState(false);
+  const { signIn, userId } = AuthProvided();
 
   const nav = useNavigate();
-
+  useEffect(() => {
+    if (userId) {
+      nav("/home");
+    }
+  }, [nav, userId]);
   const handleEmail = (e) => {
     setEmail(e.target.value);
   };
@@ -28,19 +34,37 @@ export default function Validation() {
   const handleChecked = () => {
     setView(!view);
   };
-  const handlesub = (e) => {
-  e.preventDefault();
-  signIn(email, pass)
-  /*
+  const handlesub = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    try {
+      await signIn(email, pass);
+      toast("Successfully logged in", { duration: 3000, icon: "✔" });
+      setLoading(false);
+      setTimeout(() => {
+        nav("/home");
+      }, 1000);
+    } catch (e) {
+      const errorMessage = error(e.code);
+      setLoading(false);
+      toast(errorMessage, { duration: 2000, icon: "❌❌" });
+    }
+
+    // if (valueerror.code === "400") {
+    //
+    // } else {
+    //   toast("Successfully logged in", { duration: 3000, icon: "✔" });
+    //   setTimeout(() => {
+    //     nav("/home");
+    //   }, 3000);
+    // }
+
+    /*
   .then((userCredential) => {
     const user = userCredential.user;
     if(user && userCredential){
       
-      toast("Successfully logged in", { duration: 3000, icon: "✔" });
-      setTimeout(() => {
-          nav('/home');
-          }, 3000); 
-    }
+      
     else{
       toast("Wrong password or email", {duration:2000,icon:'❌❌'});
     }
@@ -124,9 +148,13 @@ export default function Validation() {
                       </div>
                     </div>
                     <div className="logbtndiv">
-                      <button className="logbtn" type="submit">
+                      <button
+                        className="logbtn"
+                        type="submit"
+                        disabled={isloading}
+                      >
                         {" "}
-                        PROCEED
+                        {isloading ? "...loading" : "PROCEED"}
                       </button>
                     </div>
                   </div>

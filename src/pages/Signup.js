@@ -1,21 +1,39 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Toaster, toast } from "react-hot-toast";
 import { Link } from "react-router-dom";
 import Header from "../components/header";
 import AuthProvided from "../lib/auth";
-
+import { useNavigate } from "react-router";
+import { error } from "../lib/error";
 export default function SignUp() {
   const [name, setName] = useState("");
   const [pass, setPassword] = useState("");
-
+  const [isloading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [view, setView] = useState(true);
-  const { siginUp } = AuthProvided();
-
+  const { siginUp, userId } = AuthProvided();
+  const nav = useNavigate();
+  useEffect(() => {
+    if (userId) {
+      nav("/home");
+    }
+  }, [nav, userId]);
   const handlesub = async (e) => {
     e.preventDefault();
-    siginUp(email, pass);
-    toast("Successfully Registered", { duration: 3000, icon: "✔" });
+    setLoading(true);
+    try {
+      await siginUp(email, pass, name);
+      toast("Successfully Registered", { duration: 3000, icon: "✔" });
+      setLoading(false);
+      setTimeout(() => {
+        nav("/home");
+      }, 1000);
+    } catch (e) {
+      setLoading(false);
+
+      const errorMessage = error(e.code);
+      toast(errorMessage, { duration: 2000, icon: "❌❌" });
+    }
   };
 
   return (
@@ -89,7 +107,7 @@ export default function SignUp() {
 
                   <div className="logbtndiv">
                     <button className="logbtn" type="submit">
-                      REGISTER
+                      {isloading ? "Loading" : "Register"}
                     </button>
                   </div>
                 </div>

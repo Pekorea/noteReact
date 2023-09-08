@@ -11,7 +11,7 @@ import { addUser } from "./helper";
 export default function AuthProvided() {
   const [user, setUser] = useState(null);
 
-  const siginUp = async (email, password) => {
+  const siginUp = async (email, password, name) => {
     try {
       const userInfo = await createUserWithEmailAndPassword(
         auth,
@@ -19,9 +19,9 @@ export default function AuthProvided() {
         password
       );
       setUser(userInfo.user.uid);
-      await addUser(userInfo.user.uid);
-    } catch {
-      console.error("Error signing in with password and email");
+      await addUser(userInfo.user.uid, name);
+    } catch (e) {
+      throw e;
     }
   };
 
@@ -33,8 +33,8 @@ export default function AuthProvided() {
         password
       );
       setUser(signInUser.user.uid);
-    } catch {
-      console.log("something went wrong");
+    } catch (e) {
+      throw e;
     }
   };
   const signOutF = async () => {
@@ -56,7 +56,7 @@ export default function AuthProvided() {
   }, []);
 
   return {
-    userId: user && null,
+    userId: user,
     signIn,
     siginUp,
     signOutF,

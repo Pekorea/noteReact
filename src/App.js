@@ -1,44 +1,53 @@
-import './App.css';
-import './Mindev.css'
+import "./App.css";
+import "./Mindev.css";
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Signup from './pages/Signup';
-import Forgotten_password from './pages/forgottenp';
-import Validation from './pages/loginsignup';
-import Home from './pages/home';
-import AuthProvider from './lib/authProvider';
-import Notesform from './pages/notesform';
-import ErrorPage from './pages/error';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Signup from "./pages/Signup";
+import Forgotten_password from "./pages/forgottenp";
+import Validation from "./pages/loginsignup";
+import Home from "./pages/home";
+import AuthProvider from "./lib/authProvider";
+import Notesform from "./pages/notesform";
+import ErrorPage from "./pages/error";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import NavBarChecker from "./lib/NavBarChecker";
+import Favourites from "./pages/favorite";
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <div>
       <AuthProvider>
-        <BrowserRouter>
-          <Routes>
-            {/* Default route */}
-            <Route path='/'>
-              <Route index element={<Validation />} />
-              
-            </Route>
+        <QueryClientProvider client={queryClient}>
+          <BrowserRouter>
+            <NavBarChecker />
+            <Routes>
+              {/* Default route */}
+              <Route path="/">
+                <Route index element={<Validation />} />
+              </Route>
 
-            <Route path='/noteform'>
-              <Route index element={<Notesform />} />
-            </Route>
+              <Route path="/noteform">
+                <Route index element={<Notesform />} />
+              </Route>
 
-            {/* Signup route */}
-            <Route path='/signup' errorElement={<ErrorPage/>}>
-              <Route index element={<Signup />} />
-            </Route>
-            <Route path='/forgottenp'>
-              <Route index element={<Forgotten_password />} />
-            </Route>
+              {/* Signup route */}
+              <Route path="/signup" errorElement={<ErrorPage />}>
+                <Route index element={<Signup />} />
+              </Route>
+              <Route path="/forgottenp">
+                <Route index element={<Forgotten_password />} />
+              </Route>
 
-            <Route path='/home'>
-              <Route index element={<Home />} />
-            </Route>
-          </Routes>
-        </BrowserRouter>
+              <Route path="/home">
+                <Route index element={<Home />} />
+              </Route>
+              <Route path="/favorite">
+                <Route index element={<Favourites />} />
+              </Route>
+            </Routes>
+          </BrowserRouter>
+        </QueryClientProvider>
       </AuthProvider>
     </div>
   );
