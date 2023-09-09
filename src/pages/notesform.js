@@ -1,9 +1,11 @@
 import { useState } from "react";
-import Navbar from "../components/navbar";
 import { useMutation } from "@tanstack/react-query";
 import { AddNote } from "../lib/helper";
 import AuthProvided from "../lib/auth";
+import {Toaster,toast} from 'react-hot-toast'
+import { useNavigate } from "react-router";
 const Notesform = () => {
+  const nav = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const { userId } = AuthProvided();
@@ -19,36 +21,58 @@ const Notesform = () => {
   const clearThem = () => {
     mutation.mutate();
   };
+  const clears=()=>{
+    setBody("")
+  }
+  const savenotes = (e)=>{
+    e.preventDefault();
+    toast("Note created!",{duration:1200,icon:'😁✔'})
+    setTimeout(()=>{
+      nav('/home')
+    },1500
+    )
+  }
   return (
     <div>
+      <Toaster/>
       <div className="noteform">
-        <form className="notesform">
-          <h1>Create Note</h1>
+        <form onSubmit={savenotes} className="notesform">
+          <h1>CREATE NOTE</h1>
           <hr></hr>
+
           <input
             minLength={3}
             value={title}
             type="text"
-            placeholder="Title..."
+            placeholder="TITLE..."
             onChange={titleText}
             required
             className="titlebox"
             maxLength={15}
           />
-          <input
+          <div className="textbox_div">
+            <textarea
             minLength={2}
             value={body}
             type="text"
-            maxLength={250}
+            rows={400}
+            maxLength={2000}
             placeholder="Enter your text here"
             onChange={bodyText}
             className="textbox"
             required
           />
-          <button type="submit">Save</button>
-          <button type="reset" onClick={clearThem}>
-            {mutation.isLoading ? "...loading" : "submit"}
+          </div>
+          <div className="notesbtn_div">
+          <button className="Savebtn" type="submit">SAVE</button>
+          <button className='buttun' type="button" onClick={clears}>
+           CLEAR
           </button>
+          {/*<button type="button" onClick={clearThem}>
+            {mutation.isLoading ? "...loading" : "SUBMIT"}
+  </button>*/}
+          </div>
+          
         </form>
       </div>
     </div>

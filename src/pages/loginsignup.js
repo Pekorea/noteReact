@@ -10,9 +10,9 @@ import AuthProvided from "../lib/auth";
 import { error } from "../lib/error";
 
 export default function Validation() {
-  const [name, setName] = useState("");
+  //const [name, setName] = useState("");
   const [pass, setPassword] = useState("");
-  const [npass, setNpass] = useState("");
+  //const [npass, setNpass] = useState("");
   const [email, setEmail] = useState("");
   const [view, setView] = useState(true);
   const [isloading, setLoading] = useState(false);
