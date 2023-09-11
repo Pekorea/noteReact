@@ -18,14 +18,12 @@ const Notesform = () => {
   const titleText = (e) => {
     setTitle(e.target.value);
   };
-  const clearThem = () => {
-    mutation.mutate();
-  };
   const clears = () => {
     setBody('');
   };
   const savenotes = (e) => {
     e.preventDefault();
+    mutation.mutate();
     toast('Note created!', { duration: 1200, icon: '😁✔' });
     setTimeout(() => {
       nav('/home');
@@ -64,13 +62,10 @@ const Notesform = () => {
           </div>
           <div className='notesbtn_div'>
             <button className='Savebtn' type='submit'>
-              SAVE
+            {mutation.isLoading ? '...loading' : 'SAVE'}
             </button>
             <button className='buttun' type='button' onClick={clears}>
               CLEAR
-            </button>
-            <button type='button' onClick={clearThem}>
-              {mutation.isLoading ? '...loading' : 'SUBMIT'}
             </button>
           </div>
         </form>

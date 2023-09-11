@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Mindev.css";
-
+import Locked from "./pages/lockednotes"; 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Forgotten_password from "./pages/forgottenp";
@@ -22,7 +22,7 @@ function App() {
           <BrowserRouter>
             <NavBarChecker />
             <Routes>
-              {/* Default route */}
+              
               <Route path="/">
                 <Route index element={<Validation />} />
               </Route>
@@ -31,7 +31,11 @@ function App() {
                 <Route index element={<Notesform />} />
               </Route>
 
-              {/* Signup route */}
+              <Route path="/LN">
+                <Route index element={<Locked />} />
+              </Route>
+
+              
               <Route path="/signup" errorElement={<ErrorPage />}>
                 <Route index element={<Signup />} />
               </Route>

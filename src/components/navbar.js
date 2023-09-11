@@ -1,11 +1,13 @@
 import { TiThMenu } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
+import {FcAbout} from 'react-icons/fc';
 import { useState } from "react";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillLock } from "react-icons/ai";
 import { LuLogOut } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
+import { GrAdd } from 'react-icons/gr';
 const Navbar = () => {
   const [searchT, setSearchT] = useState(false);
   const [onSearch, setOnSearch] = useState("");
@@ -51,7 +53,13 @@ const Navbar = () => {
             <BiSearchAlt className="searchIcon" />
           </button>
           <ul className="list-items">
-            <li>About</li>
+            <li>
+              <Link to='/noteform'>
+                  <button className='addbutton'>
+                    <GrAdd />
+                  </button>
+                </Link>
+                </li>
           </ul>
         </div>
 
@@ -86,11 +94,27 @@ const Navbar = () => {
               Favourites
             </li>
           </Link>
+
+          <Link to='/LN'
+          style={{
+            textDecoration: "none",
+            color: "white",
+          }}
+          >
           <li>
+            
             <div>
               <AiFillLock />
             </div>
+           
             Locked notes
+          </li>
+           </Link>
+          <li>
+          <div>
+              <FcAbout />
+            </div>
+            About
           </li>
           <li
             onClick={() => {

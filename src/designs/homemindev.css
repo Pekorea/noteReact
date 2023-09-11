@@ -8,6 +8,9 @@
         color:white;
     
     }
+    button{
+        font-family: 'Montserrat';
+    }
     .hsidebarcont{
       position: absolute;
       z-index: 1000;
@@ -133,23 +136,30 @@
         border: 2px solid white;
         border-radius: 10px;        
         background-color: transparent;
+        overflow: auto;
+        overflow-x: hidden;
         width:85%;
         padding:15px;
         position: relative;
     }
-    .abdiv{
-        position: absolute;
-        bottom:100px;
-        right:20px;
+    .anotes::-webkit-scrollbar{
+        width:12px;
     }
-    .addbutton{
-        position: sticky;
+    .anotes::-webkit-scrollbar-track{
+        background-color: white;
+    }
+    .anotes::-webkit-scrollbar-thumb{
+        background: rgb(179, 59, 59);
+        
+    }
+    .addbutton{ 
+        position: relative;
         bottom:10px;
         background-color: white;
         width:50px;
-        height: 50px;
+        height: 40px;
         color:white;
-        border-radius: 15px;
+        border-radius: 10px;
         cursor: pointer;
     }
     .menubar{
@@ -203,27 +213,73 @@
         padding: 10px;
     }
     .notes{
-        background-color: white;
-        color:black;
+        
+        margin-bottom: 5px;
         position: relative;
         font-family: 'REM';
         border-radius: 15px;
         padding-left: 5px;
         height:85px;
         display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        transition: .5s;
+        justify-content: space-between;
         font-size: 14px;
+    
 
         
     }
-    .notes:hover{
+    .acN:hover{
         filter: brightness(75%);
     }
     .acN{
+        border-top-left-radius:10px ;
+        border-bottom-left-radius:10px ;
+        cursor: pointer;
+        transition: .5s;
         position: relative;
-        bottom: 10px;
+        bottom: 0px;
+        background-color: white;
+        color:black;
+        font-family: 'REM';
+        height:85px;
+        display: flex;
+        flex-direction: column;
+        width: 65%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .btn_div{
+        padding-left: 5px;
+        padding-right: 5px;
+        height:100%;
+       width:35%;
+       gap:10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-top-right-radius:10px ;
+        border-bottom-right-radius:10px ;
+    }
+    .btn1{
+        background-color: white;
+        border-radius: 10px;
+        width:26%;
+        height:40px;
+        cursor: pointer;
+    }
+    .btn2{
+        cursor: pointer;
+        border-radius: 10px;
+        width:26%;
+        height:40px;
+    }
+    .btn3{
+        cursor: pointer;
+        border-radius: 10px;
+        background-color: rgb(192, 42, 42);
+        color:white;
+        height:40px;
+
     }
     .hrN{
         width:100%;
@@ -231,11 +287,17 @@
     }
     .notes h3{
         padding-left: 10px;
+        font-size: 18px;
+        display: flex;
+        align-items: flex-start;
         
     }
     .notes p{
+        padding-left: 5px;
         position: absolute;
-        top:45px;
+        top:30px;
+        font-size: 13px;
+        bottom: 5px;
     }
         
     .noteform{
