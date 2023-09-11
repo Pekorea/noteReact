@@ -45,7 +45,7 @@ const Notesform = () => {
             onChange={titleText}
             required
             className='titlebox'
-            maxLength={15}
+            maxLength={30}
           />
           <div className='textbox_div'>
             <textarea

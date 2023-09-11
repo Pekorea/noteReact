@@ -65,7 +65,23 @@ function Locked() {
                 </div>
              {/*key={item.id} {data &&
                 data.map((item) => (
+                  <div className='acN'>
+                      <h3>{item.title}</h3>
+                      <hr className='hrN'></hr>
+                      <p>{item.body}</p>
+                    </div>
+                    <div className='btn_div'>
+                    <button className='btn1'><AiFillLock/></button>
+                    <button className='btn2'><BsFillBookmarkHeartFill/></button>
+                    <button className='btn3'><AiFillDelete/>Delete</button>
+                    </div>
+                  //check line 57 i put the current date with time code there
+                  </div>
                   
+                )):
+                <div className='no_notes'> 
+                  <h1>No Locked Notes🔒📒</h1>
+                </div>
                 ))}*/}
 
       
