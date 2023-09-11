@@ -1,118 +1,132 @@
     @import url('https://fonts.googleapis.com/css2?family=Lugrasimo&family=Orbitron&family=Poppins&family=REM:ital@1&display=swap');
-@media (min-width:760px) {
-    body{
-        font-family: 'Montserrat';
-        padding-top: 0px;
-        margin-top: 0px;
-        color:white;
-    
-    }
-    
-    .hsidebarcont{
-      position: absolute;
-      z-index: 1000;
-        transition: .5s ;
-        background-color: black;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-        height: 100dvh;
-        display: flex;
-        flex-direction: column;
-        color:white;
-        width: 12rem;
-        font-size: 15px;
-        align-items: center;
-        justify-content: flex-start;
-        
-    }
-    .hsidebarconts{
-        display: none;
-    }
-    .profimg{
-        width:30px;
-        height: 26px;
-        border-radius: 10px;
+    @media (min-width:760px) {
+        body {
+            font-family: 'Montserrat';
+            padding-top: 0px;
+            margin-top: 0px;
+            color: white;
 
-    }
-    .sb-items{
-        
-        justify-content: center;
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-        gap:10px;
-        
-        width:100%;
+        }
 
-    }
-    .sb-items li{
-        transition: .3s ease-in;
-        font-family: 'Orbitron';
-        display: flex;
-        justify-content: center;
-        border-radius: 10px;
-        width:80%;
-        height: 40px;
-        align-items: center;
-        gap:10px;
-        cursor: pointer;
-    }
-    .sb-items li:hover{
-        background-color: white;
-        color:black;
-       
-    }
-    .containerr{
-        position: relative;
-    }
-    .mainNc{
-       
-        display: flex;
-        justify-content: center;
-    }
-    .cont{
-        padding: 0px;
-        margin: 0px;
-    }
-    .navbar-head{
-        display: flex;
-        justify-content: space-around;
-        gap:15px;
-        
-    }
-    .searchIcon{
-        height: 30px;
-        width:2rem;
-        color:white;
-    }
-    .searchIcondiv{
-        cursor: pointer;
-        outline: none;
-        border:none;
-        background-color: transparent;
-        position: absolute;
-        right:90px;
-        top:20px;
-        height: 30px;
-        width:2rem;
-    }
-    .searchbar{
-        display: none;
-        height:0px;
-    }
-    .searchBar{
-        padding-top:5px;
-        position: relative;
-        width: 100%;
-        height:60px;
-        /*animation:grow 0.5s linear;*/
-        background-color: black;
-        color:white;
-        display: flex;
-        justify-content: center;
-        transition: .5s;
-    }
-   /* @keyframes grow{
+        .hsidebarcont {
+            position: absolute;
+            z-index: 1000;
+            transition: .5s;
+            background-color: black;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            color: white;
+            width: 12rem;
+            font-size: 15px;
+            align-items: center;
+            justify-content: flex-start;
+
+        }
+
+        .hsidebarconts {
+            display: none;
+        }
+
+        .profimg {
+            width: 30px;
+            height: 26px;
+            border-radius: 10px;
+
+        }
+
+        .sb-items {
+
+            justify-content: center;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            width: 100%;
+
+        }
+
+        .sb-items li {
+            transition: .3s ease-in;
+            font-family: 'Orbitron';
+            display: flex;
+            justify-content: center;
+            border-radius: 10px;
+            width: 80%;
+            height: 40px;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .sb-items li:hover {
+            background-color: white;
+            color: black;
+
+        }
+
+        .containerr {
+            position: relative;
+        }
+
+        .mainNc {
+
+            display: flex;
+            justify-content: center;
+        }
+
+        .cont {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .navbar-head {
+            display: flex;
+            justify-content: space-around;
+            gap: 15px;
+
+        }
+
+        .searchIcon {
+            height: 30px;
+            width: 2rem;
+            color: white;
+        }
+
+        .searchIcondiv {
+            cursor: pointer;
+            outline: none;
+            border: none;
+            background-color: transparent;
+            position: absolute;
+            right: 90px;
+            top: 20px;
+            height: 30px;
+            width: 2rem;
+        }
+
+        .searchbar {
+            display: none;
+            height: 0px;
+        }
+
+        .searchBar {
+            padding-top: 5px;
+            position: relative;
+            width: 100%;
+            height: 60px;
+            /*animation:grow 0.5s linear;*/
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            transition: .5s;
+        }
+
+        /* @keyframes grow{
         0%{
             height:0px;
         }
@@ -121,152 +135,172 @@
             height: 60px;
         }
     }*/
-    .searchBar input{
-       text-align: center;
-        border:2px solid white;
-        border-radius: 15px;
-    }
-    .anotes{
-        margin-top: 20px;
-        border: 2px solid white;
-        border-radius: 10px;        
-        background-color: transparent;
-        width:85%;
-        padding:15px;
-        position: relative;
-    }
-    .abdiv{
-        position: absolute;
-        bottom:100px;
-        right:20px;
-    }
-    .addbutton{
-        position: sticky;
-        bottom:10px;
-        background-color: white;
-        width:50px;
-        height: 50px;
-        color:white;
-        border-radius: 15px;
-        cursor: pointer;
-    }
-    .menubar{
-        position: relative;
-        top:23px;
-        left:10px;
-        width:50px;
-        height: 24px;
-        display: flex;
-        justify-content: center;
-        cursor: pointer;
-        transition: .4s;
-    }
-    .menubar:hover{
-        background-color: white;
-        border-radius: 50px;
-        color:black;
-    }
-    .list-items{
-        cursor: pointer;
-        list-style: none;
-        display: flex;
-        justify-content: center;
-        position: relative;
-        top:10px;
-        padding-right: 10px;
-    }
-    .navbar{
-        display: flex;
-        flex-direction: column;
-        transition: .4s ease-out;
-       
-    }
-    .navcont{
-        display: flex;
-        justify-content: space-between;
-        
-        width: 100%;
-        height:70px;
-        background-color: black;
-        padding-top: 0px;
-        margin-top: 0px;
-        font-family: 'Orbitron';
-    }
-    .notescont{
-        display: flex;
-        justify-content: center;
-        background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
-        height: 100dvh;
-        width:100%;
-        padding: 10px;
-    }
-    .notes{
-        background-color: white;
-        color:black;
-        position: relative;
-        font-family: 'REM';
-        border-radius: 15px;
-        padding-left: 5px;
-        height:85px;
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        transition: .5s;
-        font-size: 14px;
+        .searchBar input {
+            text-align: center;
+            border: 2px solid white;
+            border-radius: 15px;
+        }
 
-        
-    }
-    .notes:hover{
-        filter: brightness(75%);
-    }
-    .acN{
-        position: relative;
-        bottom: 10px;
-    }
-    .hrN{
-        width:100%;
-        border: 2px solid white;
-    }
-    .notes h3{
-        padding-left: 10px;
-        
-    }
-    .notes p{
-        position: absolute;
-        top:45px;
-    }
-        
-    .noteform{
-        display: flex;
-        justify-content: center;
-        background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
-        padding:10px;
-        height: 100dvh;
-        align-items: center;
-       
-    }
-    .titlebox{
-        text-align: center;
-    }
-    .notesform{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        height:100dvh;
-        width: 80%;
-        border:2px solid white;
-        border-radius: 5px;
-        padding: 4px;
-    }
-    .textbox{
-        
-        width: 100%;
-        overflow-x: scroll;
-        overflow-y: scroll;
-    }
+        .anotes {
+            margin-top: 20px;
+            border: 2px solid white;
+            border-radius: 10px;
+            background-color: transparent;
+            width: 85%;
+            padding: 15px;
+            position: relative;
+        }
+
+        .abdiv {
+            position: absolute;
+            bottom: 100px;
+            right: 20px;
+        }
+
+        .addbutton {
+            position: sticky;
+            bottom: 10px;
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+        }
+
+        .menubar {
+            position: relative;
+            top: 23px;
+            left: 10px;
+            width: 50px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            transition: .4s;
+        }
+
+        .menubar:hover {
+            background-color: white;
+            border-radius: 50px;
+            color: black;
+        }
+
+        .list-items {
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            top: 10px;
+            padding-right: 10px;
+        }
+
+        .navbar {
+            display: flex;
+            flex-direction: column;
+            transition: .4s ease-out;
+
+        }
+
+        .navcont {
+            display: flex;
+            justify-content: space-between;
+
+            width: 100%;
+            height: 70px;
+            background-color: black;
+            padding-top: 0px;
+            margin-top: 0px;
+            font-family: 'Orbitron';
+        }
+
+        .notescont {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
+            height: 100dvh;
+            width: 100%;
+            padding: 10px;
+        }
+
+        .notes {
+            background-color: white;
+            color: black;
+            position: relative;
+            font-family: 'REM';
+            border-radius: 15px;
+            padding-left: 5px;
+            height: 85px;
+
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            transition: .5s;
+            font-size: 14px;
+            margin: 5px;
 
 
-    /*.mainNc{
+        }
+
+        .notes:hover {
+            filter: brightness(75%);
+        }
+
+        .acN {
+            position: relative;
+            bottom: 10px;
+        }
+
+        .hrN {
+            width: 100%;
+            border: 2px solid white;
+        }
+
+        .notes h3 {
+            padding-left: 10px;
+
+        }
+
+        .notes p {
+            position: absolute;
+            top: 45px;
+        }
+
+        .noteform {
+            display: flex;
+            justify-content: center;
+            background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
+            padding: 10px;
+            height: 100dvh;
+            align-items: center;
+
+        }
+
+        .titlebox {
+            text-align: center;
+        }
+
+        .notesform {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100dvh;
+            width: 80%;
+            border: 2px solid white;
+            border-radius: 5px;
+            padding: 4px;
+        }
+
+        .textbox {
+
+            width: 100%;
+            overflow-x: scroll;
+            overflow-y: scroll;
+        }
+
+
+        /*.mainNc{
        
         display: flex;
         justify-content: center;
@@ -286,5 +320,5 @@
         width:75%;
         padding: 10px;
     }
-*/        
-}
+*/
+    }

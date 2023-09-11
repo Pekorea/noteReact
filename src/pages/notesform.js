@@ -1,13 +1,13 @@
-import { useState } from "react";
-import { useMutation } from "@tanstack/react-query";
-import { AddNote } from "../lib/helper";
-import AuthProvided from "../lib/auth";
-import {Toaster,toast} from 'react-hot-toast'
-import { useNavigate } from "react-router";
+import { useState } from 'react';
+import { useMutation } from '@tanstack/react-query';
+import { AddNote } from '../lib/helper';
+import AuthProvided from '../lib/auth';
+import { Toaster, toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router';
 const Notesform = () => {
   const nav = useNavigate();
-  const [title, setTitle] = useState("");
-  const [body, setBody] = useState("");
+  const [title, setTitle] = useState('');
+  const [body, setBody] = useState('');
   const { userId } = AuthProvided();
   const mutation = useMutation({
     mutationFn: () => AddNote({ title, body }, userId),
@@ -21,58 +21,58 @@ const Notesform = () => {
   const clearThem = () => {
     mutation.mutate();
   };
-  const clears=()=>{
-    setBody("")
-  }
-  const savenotes = (e)=>{
+  const clears = () => {
+    setBody('');
+  };
+  const savenotes = (e) => {
     e.preventDefault();
-    toast("Note created!",{duration:1200,icon:'😁✔'})
-    setTimeout(()=>{
-      nav('/home')
-    },1500
-    )
-  }
+    toast('Note created!', { duration: 1200, icon: '😁✔' });
+    setTimeout(() => {
+      nav('/home');
+    }, 1500);
+  };
   return (
     <div>
-      <Toaster/>
-      <div className="noteform">
-        <form onSubmit={savenotes} className="notesform">
+      <Toaster />
+      <div className='noteform'>
+        <form onSubmit={savenotes} className='notesform'>
           <h1>CREATE NOTE</h1>
           <hr></hr>
 
           <input
             minLength={3}
             value={title}
-            type="text"
-            placeholder="TITLE..."
+            type='text'
+            placeholder='TITLE...'
             onChange={titleText}
             required
-            className="titlebox"
+            className='titlebox'
             maxLength={15}
           />
-          <div className="textbox_div">
+          <div className='textbox_div'>
             <textarea
-            minLength={2}
-            value={body}
-            type="text"
-            rows={400}
-            maxLength={2000}
-            placeholder="Enter your text here"
-            onChange={bodyText}
-            className="textbox"
-            required
-          />
+              minLength={2}
+              value={body}
+              type='text'
+              rows={400}
+              maxLength={2000}
+              placeholder='Enter your text here'
+              onChange={bodyText}
+              className='textbox'
+              required
+            />
           </div>
-          <div className="notesbtn_div">
-          <button className="Savebtn" type="submit">SAVE</button>
-          <button className='buttun' type="button" onClick={clears}>
-           CLEAR
-          </button>
-          {/*<button type="button" onClick={clearThem}>
-            {mutation.isLoading ? "...loading" : "SUBMIT"}
-  </button>*/}
+          <div className='notesbtn_div'>
+            <button className='Savebtn' type='submit'>
+              SAVE
+            </button>
+            <button className='buttun' type='button' onClick={clears}>
+              CLEAR
+            </button>
+            <button type='button' onClick={clearThem}>
+              {mutation.isLoading ? '...loading' : 'SUBMIT'}
+            </button>
           </div>
-          
         </form>
       </div>
     </div>
