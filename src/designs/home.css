@@ -7,6 +7,9 @@
             color: white;
 
         }
+        button{
+            font-family: 'Montserrat';
+        }
 
         .hsidebarcont {
             position: absolute;
@@ -151,21 +154,15 @@
             position: relative;
         }
 
-        .abdiv {
-            position: absolute;
-            bottom: 100px;
-            right: 20px;
-        }
-
         .addbutton {
-            position: sticky;
-            bottom: 10px;
+            position: relative;
             background-color: white;
-            width: 50px;
-            height: 50px;
-            color: white;
-            border-radius: 15px;
+            width:50px;
+            height: 40px;
+            color:white;
+            border-radius: 10px;
             cursor: pointer;
+            bottom:10px;
         }
 
         .menubar {
@@ -225,31 +222,77 @@
         }
 
         .notes {
-            background-color: white;
-            color: black;
+            padding-left:4px;
+            padding-right:4px;
+            margin-left:4px;
+            margin-right:4px;
+            margin-bottom: 5px;
             position: relative;
             font-family: 'REM';
             border-radius: 15px;
             padding-left: 5px;
-            height: 85px;
-
+            height:85px;
             display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: .5s;
+            justify-content: space-between;
             font-size: 14px;
-            margin: 5px;
 
 
         }
 
-        .notes:hover {
+        .acN:hover {
             filter: brightness(75%);
         }
 
         .acN {
+            border-top-left-radius:10px ;
+            border-bottom-left-radius:10px ;
+            cursor: pointer;
+            transition: .5s;
             position: relative;
-            bottom: 10px;
+            bottom: 0px;
+            background-color: white;
+            color:black;
+            font-family: 'REM';
+            height:85px;
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+            overflow: hidden;
+            overflow-y: auto;
+        }
+        .btn_div{
+            padding-left: 5px;
+            padding-right: 5px;
+            height:100%;
+           width:40%;
+           gap:10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: black;
+            border-top-right-radius:10px ;
+            border-bottom-right-radius:10px ;
+        }
+        .btn1{
+            background-color: white;
+            border-radius: 10px;
+            width:26%;
+            height:40px;
+            cursor: pointer;
+        }
+        .btn2{
+            cursor: pointer;
+            border-radius: 10px;
+            width:26%;
+            height:40px;
+        }
+        .btn3{
+            cursor: pointer;
+            border-radius: 10px;
+            background-color: rgb(192, 42, 42);
+            color:white;
+            height:40px;
+    
         }
 
         .hrN {
@@ -259,12 +302,18 @@
 
         .notes h3 {
             padding-left: 10px;
+            font-size: 18px;
+            align-items: flex-start;
+            display: flex;
 
         }
 
         .notes p {
+            padding-left: 5px;
             position: absolute;
-            top: 45px;
+            top:30px;
+            font-size: 13px;
+            bottom: 5px;
         }
 
         .noteform {

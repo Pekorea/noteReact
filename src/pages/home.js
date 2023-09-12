@@ -79,7 +79,7 @@ function Home() {
               ></hr>
               <div className='notelist'>
               {
-              data.length>0 ?//this block of code needs async await guy
+              (data!==null) ?//this block of code needs async await guy
                 data.map((item) => (
                   <div className='notes' key={item.id}>
                     <div className='acN'>

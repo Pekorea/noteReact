@@ -275,15 +275,15 @@
         height:85px;
         display: flex;
         flex-direction: column;
-        width: 65%;
-        overflow-x: hidden;
+        width: 60%;
+        overflow: hidden;
         overflow-y: auto;
     }
     .btn_div{
         padding-left: 5px;
         padding-right: 5px;
         height:100%;
-       width:35%;
+       width:40%;
        gap:10px;
         display: flex;
         justify-content: center;
@@ -330,6 +330,7 @@
         top:30px;
         font-size: 13px;
         bottom: 5px;
+        display: none;
     }
         
     .noteform{
