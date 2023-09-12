@@ -255,9 +255,6 @@
         display: flex;
         justify-content: space-between;
         font-size: 14px;
-    
-
-        
     }
     .acN:hover{
         filter: brightness(75%);
@@ -395,8 +392,8 @@
         outline: none;
         background-color: transparent;
         width: 100%;
-        max-width: 350px;
-        height: fit-content;
+        max-width: 100%;
+        height: 100%;
         border: none;
         color:white;
     }
@@ -404,20 +401,19 @@
         word-wrap: break-word;
         padding: 5px;
         border:2px solid white;
-        height: 50%;
-        overflow: auto;
+        height: 60%;
         width:80%;
         margin-top: 10px;
         background-color: rgb(58, 47, 47);
         
     }
-    .textbox_div::-webkit-scrollbar{
+    .textbox::-webkit-scrollbar{
         width:12px;
     }
-    .textbox_div::-webkit-scrollbar-track{
+    .textbox::-webkit-scrollbar-track{
         background-color: white;
     }
-    .textbox_div::-webkit-scrollbar-thumb{
+    .textbox::-webkit-scrollbar-thumb{
         background: rgb(179, 59, 59);
         
     }

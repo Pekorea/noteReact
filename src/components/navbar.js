@@ -1,19 +1,21 @@
 import { TiThMenu } from "react-icons/ti";
 import { BiSearchAlt } from "react-icons/bi";
-import {FcAbout} from 'react-icons/fc';
+import { FcAbout } from "react-icons/fc";
 import { useState } from "react";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillLock } from "react-icons/ai";
 import { LuLogOut } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
-import { GrAdd } from 'react-icons/gr';
+import { GrAdd } from "react-icons/gr";
+import { useLocation } from "react-router-dom";
 const Navbar = () => {
   const [searchT, setSearchT] = useState(false);
   const [onSearch, setOnSearch] = useState("");
   const [toggle, setToggle] = useState(false);
   const { signOutF } = AuthProvided();
   const nav = useNavigate();
+  const { pathname } = useLocation();
   const searching = (event) => {
     setOnSearch(event.target.value);
   };
@@ -49,28 +51,32 @@ const Navbar = () => {
               </h1>
             </Link>
           </header>
-          <button onClick={isOpen} className="searchIcondiv">
-            <BiSearchAlt className="searchIcon" />
-          </button>
+          {pathname !== "/noteform" && (
+            <button onClick={isOpen} className="searchIcondiv">
+              <BiSearchAlt className="searchIcon" />
+            </button>
+          )}
           <ul className="list-items">
             <li>
-              <Link to='/noteform'>
-                  <button className='addbutton'>
-                    <GrAdd />
-                  </button>
-                </Link>
-                </li>
+              <Link to="/noteform">
+                <button className="addbutton">
+                  <GrAdd />
+                </button>
+              </Link>
+            </li>
           </ul>
         </div>
 
-        <div className={searchT ? "searchBar" : "searchbar"}>
-          <input
-            type="search"
-            value={onSearch}
-            onChange={searching}
-            placeholder="Search notes..."
-          ></input>
-        </div>
+        {pathname !== "/noteform" && (
+          <div className={searchT ? "searchBar" : "searchbar"}>
+            <input
+              type="search"
+              value={onSearch}
+              onChange={searching}
+              placeholder="Search notes..."
+            ></input>
+          </div>
+        )}
       </div>
       <div className={toggle ? "hsidebarcont" : "hsidebarconts"}>
         <ul className="sb-items">
@@ -95,23 +101,22 @@ const Navbar = () => {
             </li>
           </Link>
 
-          <Link to='/LN'
-          style={{
-            textDecoration: "none",
-            color: "white",
-          }}
+          <Link
+            to="/LN"
+            style={{
+              textDecoration: "none",
+              color: "white",
+            }}
           >
+            <li>
+              <div>
+                <AiFillLock />
+              </div>
+              Locked notes
+            </li>
+          </Link>
           <li>
-            
             <div>
-              <AiFillLock />
-            </div>
-           
-            Locked notes
-          </li>
-           </Link>
-          <li>
-          <div>
               <FcAbout />
             </div>
             About
