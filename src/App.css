@@ -5,6 +5,7 @@
       padding: 1px;
       font-family: 'Montserrat', sans-serif;
       color: white;
+      overflow: hidden;
     }
   
     .cont{
@@ -248,8 +249,10 @@
       display:flex;
       justify-content: center;
       align-items: center;
+      font-size: 25px;
       height:100%;
       width:50%;
+      font-family: 'Orbitron';
       background-color: black;
     }
     .Einput{
@@ -258,7 +261,7 @@
       height: 40px;
     }
         .Einput {
-          border-bottom: 2px solid black;
+          border-bottom: 2px solid white;
           background-color: transparent;
           height: 40px;
           text-align: center;
@@ -270,7 +273,7 @@
     
         .ediv label {
           position: absolute;
-          color: black;
+          color: white;
           left: 3px;
         }
     
@@ -307,18 +310,18 @@
           background: linear-gradient(to left, rgb(133, 131, 131) 0%, #857c78 50%, rgb(0, 0, 0) 100%);
           color: white;
           width: 80%;
-          height: 30px;
-          border-radius: 20px;
+          height: 40px;
+          border-radius: 4px;
           transition: .5s ease;
           cursor: pointer;
           font-family: 'Montserrat';
           font-size: large;
-    
+          padding: 4px;
         }
     
         .subbutton:hover {
-          background: grey;
-          color: black
+          background: linear-gradient(to left,rgb(0, 0, 0) 0%, #857c78 50%, rgb(133, 131, 131)  100%);
+          
         }
     
         .subbutton:active {
@@ -328,6 +331,7 @@
     
         .fheader {
           display: flex;
+          font-family: 'Poppins';
           justify-content: center;
         }
     

@@ -203,6 +203,100 @@
     input:invalid~label{
      top:-15px;
     }
+    .mainCont{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      height:100dvh;
+      width:100%; 
+      gap:1px;
+    }
+    
+    .fpdiv{
+      display:flex;
+      flex-direction: column;
+      height: 100dvh;
+      align-items: center;
+      justify-content: center;
+      width:100%;
+      background: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
+    }
+    .imgcontt{
+      display:none;
+    }
+    .Einput{
+      border-bottom:2px solid white;
+      background-color: transparent;
+      height: 40px;
+    }
+    
+        .Einput:invalid~label {
+          top: -15px;
+        }
+    
+        .ediv label {
+          position: absolute;
+          color: white;
+          left: 3px;
+        }
+    
+        .Einput:focus,
+        .Einput:valid {
+          border-bottom: 2px solid rgb(102, 100, 100);
+        }
+    
+        .ediv {
+          position: relative;
+          top: 20px;
+          left: 10%;
+          width: 100%;
+          height: 20%;
+        }
+    
+        .forp {
+          border: 2px solid white;
+          width: 340px;
+          height: 270px;
+          border-radius: 15px;
+        }
+    
+        .btndiv {
+          position: relative;
+          top: 65px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+        }
+    
+        .subbutton {
+          background: linear-gradient(to left, rgb(133, 131, 131) 0%, #857c78 50%, rgb(0, 0, 0) 100%);
+          color: white;
+          width: 80%;
+          height: 40px;
+          border-radius: 4px;
+          transition: .5s ease;
+          cursor: pointer;
+          font-family: 'Montserrat';
+          font-size: large;
+          padding: 4px;
+        }
+    
+        .subbutton:hover {
+          background: linear-gradient(to left,rgb(0, 0, 0) 0%, #857c78 50%, rgb(133, 131, 131)  100%);
+          color: black
+        }
+    
+        .subbutton:active {
+          background-color: green;
+          color: white;
+        }
+    
+        .fheader {
+          display: flex;
+          font-family: 'Poppins';
+          justify-content: center;
+        }
   
     /*
   

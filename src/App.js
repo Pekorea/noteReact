@@ -4,6 +4,7 @@ import Locked from "./pages/lockednotes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Forgotten_password from "./pages/forgottenp";
+import Updateform from "./pages/updatenote";
 import Validation from "./pages/loginsignup";
 import Home from "./pages/home";
 import AuthProvider from "./lib/authProvider";
@@ -29,6 +30,10 @@ function App() {
 
               <Route path="/noteform">
                 <Route index element={<Notesform />} />
+              </Route>
+
+              <Route path="/updateform">
+                <Route index element={<Updateform />} />
               </Route>
 
               <Route path="/LN">

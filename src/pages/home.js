@@ -1,16 +1,18 @@
 import "../designs/homemindev.css";
 import "../designs/home.css";
+
 import { PopupboxContainer, PopupboxManager } from "react-popupbox";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillDelete, AiFillLock } from "react-icons/ai";
 import { Toaster, toast } from "react-hot-toast";
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import AuthCheck from "../components/AuthComp";
 import { useQuery } from "@tanstack/react-query";
 import { GetData } from "../lib/helper";
+
 function Home() {
   const current_date = new Date();
   const current_day = current_date.getDate();
@@ -20,7 +22,7 @@ function Home() {
     current_date.getHours() + ":" + current_date.getMinutes();
   const date = `${current_day}/${current_month}/${current_year}-${current_time}`;
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
-
+const nav = useNavigate();
   const [toggle, setToggle] = useState("");
   const { userId } = AuthProvided();
   const [display, setDisplay] = useState(true);
@@ -39,6 +41,9 @@ function Home() {
   if (isLoading) return <h1>loading</h1>;
   console.log(data);
 
+  const updateinc= ()=>{
+    nav('/updateform')
+  }
   /*
   console.data(data.docs);
   const closePopupbox = () => {
@@ -84,10 +89,10 @@ function Home() {
                     <h1>Create a note📒🖋</h1>
                   </div>
                 ) : (
-                  //this block of code needs async await guy
+                  
                   data.map((item) => (
                     <div className="notes" key={item.id}>
-                      <div className="acN">
+                      <div onClick={updateinc} className="acN">
                         <h3>{item.title}</h3>
                         <hr className="hrN"></hr>
                         <p>{item.body}</p>

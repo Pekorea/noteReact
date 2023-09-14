@@ -51,7 +51,7 @@ const Navbar = () => {
               </h1>
             </Link>
           </header>
-          {pathname !== "/noteform" && (
+          {(pathname !== "/noteform" &&pathname!=='/updateform') && (
             <button onClick={isOpen} className="searchIcondiv">
               <BiSearchAlt className="searchIcon" />
             </button>

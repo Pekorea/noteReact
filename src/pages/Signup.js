@@ -30,7 +30,6 @@ export default function SignUp() {
       }, 1000);
     } catch (e) {
       setLoading(false);
-
       const errorMessage = error(e.code);
       toast(errorMessage, { duration: 2000, icon: "❌❌" });
     }

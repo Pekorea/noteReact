@@ -4,5 +4,5 @@ export default function NavBarChecker() {
   const location = useLocation();
   const path = location.pathname;
 
-  return path !== "/" && path !== "/signup" && <Navbar />;
+  return (path !== "/" && path !== "/signup" && path !== "/forgottenp") && <Navbar />;
 }
