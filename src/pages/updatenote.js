@@ -8,7 +8,7 @@ import { GetData } from "../lib/helper";
 import { useQuery } from "@tanstack/react-query";
 
 const Updateform = () => {
-    const { userId } = AuthProvided();
+  const { userId } = AuthProvided();
   const nav = useNavigate();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -20,9 +20,9 @@ const Updateform = () => {
   console.log(data);
 
   //const { userId } = AuthProvided();
-  const mutation = useMutation({
+  /* const mutation = useMutation({
     //mutationFn: () => AddNote({ title, body }, userId),
-  });
+  });*/
   const bodyText = (e) => {
     setBody(e.target.value);
   };
@@ -41,7 +41,7 @@ const Updateform = () => {
         duration: 2000,
         icon: "🚩🚩",
       });
-    } else if (title.length < 3 || title.length>15) {
+    } else if (title.length < 3 || title.length > 15) {
       toast("Title minlength is 3 and max is 15", {
         duration: 2000,
         icon: "❗❗",
@@ -95,7 +95,7 @@ const Updateform = () => {
           </div>
           <div className="notesbtn_div">
             <button className="Savebtn" type="submit">
-              {mutation.isLoading ? "...loading" : "UPDATE"}
+              UPDATE
             </button>
             <button className="buttun" type="button" onClick={clears}>
               CLEAR

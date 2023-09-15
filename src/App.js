@@ -1,6 +1,6 @@
 import "./App.css";
 import "./Mindev.css";
-import Locked from "./pages/lockednotes"; 
+import Locked from "./pages/lockednotes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Forgotten_password from "./pages/forgottenp";
@@ -13,6 +13,7 @@ import ErrorPage from "./pages/error";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import NavBarChecker from "./lib/NavBarChecker";
 import Favourites from "./pages/favorite";
+import Profile from "./pages/profile";
 const queryClient = new QueryClient();
 
 function App() {
@@ -23,7 +24,6 @@ function App() {
           <BrowserRouter>
             <NavBarChecker />
             <Routes>
-              
               <Route path="/">
                 <Route index element={<Validation />} />
               </Route>
@@ -40,12 +40,15 @@ function App() {
                 <Route index element={<Locked />} />
               </Route>
 
-              
               <Route path="/signup" errorElement={<ErrorPage />}>
                 <Route index element={<Signup />} />
               </Route>
               <Route path="/forgottenp">
                 <Route index element={<Forgotten_password />} />
+              </Route>
+
+              <Route path="/profile">
+                <Route index element={<Profile />} />
               </Route>
 
               <Route path="/home">

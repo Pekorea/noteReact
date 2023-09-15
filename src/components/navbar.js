@@ -51,7 +51,7 @@ const Navbar = () => {
               </h1>
             </Link>
           </header>
-          {(pathname !== "/noteform" &&pathname!=='/updateform') && (
+          {pathname !== "/noteform" && pathname !== "/updateform" && (
             <button onClick={isOpen} className="searchIcondiv">
               <BiSearchAlt className="searchIcon" />
             </button>
@@ -80,12 +80,20 @@ const Navbar = () => {
       </div>
       <div className={toggle ? "hsidebarcont" : "hsidebarconts"}>
         <ul className="sb-items">
-          <li>
-            <div>
-              <img className="profimg" src="notebook1.png"></img>
-            </div>
-            Account
-          </li>
+          <Link
+            to="/profile"
+            style={{
+              textDecoration: "none",
+              color: "white",
+            }}
+          >
+            <li>
+              <div>
+                <img className="profimg" src="notebook1.png"></img>
+              </div>
+              Account
+            </li>
+          </Link>
           <Link
             to="/favorite"
             style={{
