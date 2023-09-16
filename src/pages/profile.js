@@ -37,6 +37,7 @@ export default function Profile() {
             <hr
               style={{ marginBottom: "20px", border: "2px dashed white" }}
             ></hr>
+            <div className="profilediv">
             <div className="profileimg_div">
               <div className="profimgborder">
                 <img className="aprofileimg" src={fileInput}></img>
@@ -50,6 +51,7 @@ export default function Profile() {
               ></input>
 
               <p>Add a profile Picture</p>
+            </div>
             </div>
           </div>
         </div>
