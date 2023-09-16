@@ -5,12 +5,13 @@
       padding: 1px;
       font-family: 'Montserrat', sans-serif;
       color: white;
-      overflow: hidden;
+     
     }
   
     .cont{
       margin-top: 0px;
       padding-top: 0px;
+      overflow: hidden;
     }
     
     .mainContainer {

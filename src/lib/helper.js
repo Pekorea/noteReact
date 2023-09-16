@@ -32,6 +32,7 @@ export async function GetData(userid) {
     const subColRef = collection(db, "users", userid, "notes");
     const data = await getDocs(subColRef);
     data.forEach((doc) => {
+      
       notes.push({ ...doc.data(), id: doc.id });
     });
     if (notes && notes.indexOf) {
