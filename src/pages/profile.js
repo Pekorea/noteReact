@@ -50,7 +50,7 @@ export default function Profile() {
                 type="file"
               ></input>
 
-              <p>Add a profile Picture</p>
+              <p>{fileInput===null ?`Add a`:`Change`} profile Picture</p>
             </div>
             </div>
           </div>

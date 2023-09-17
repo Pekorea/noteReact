@@ -5,7 +5,7 @@ import { PopupboxContainer, PopupboxManager } from "react-popupbox";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillDelete, AiFillLock } from "react-icons/ai";
 import { Toaster, toast } from "react-hot-toast";
-
+import Loading from "./loading";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
@@ -30,15 +30,8 @@ const nav = useNavigate();
     queryKey: ["todos", userId],
     queryFn: () => GetData(userId),
   });
-  /*
-  if (data!==null){
-    setDisplay(true);
-  }
-  else{
-    setDisplay(false)
-  }*/
 
-  if (isLoading) return <h1>loading</h1>;
+  if (isLoading) return <Loading/>;
   console.log(data);
 
   const updateinc= ()=>{

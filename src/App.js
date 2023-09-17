@@ -9,7 +9,6 @@ import Validation from "./pages/loginsignup";
 import Home from "./pages/home";
 import AuthProvider from "./lib/authProvider";
 import Notesform from "./pages/notesform";
-import ErrorPage from "./pages/error";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import NavBarChecker from "./lib/NavBarChecker";
 import Favourites from "./pages/favorite";
@@ -40,7 +39,7 @@ function App() {
                 <Route index element={<Locked />} />
               </Route>
 
-              <Route path="/signup" errorElement={<ErrorPage />}>
+              <Route path="/signup">
                 <Route index element={<Signup />} />
               </Route>
               <Route path="/forgottenp">

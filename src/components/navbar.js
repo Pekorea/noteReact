@@ -51,7 +51,7 @@ const Navbar = () => {
               </h1>
             </Link>
           </header>
-          {pathname !== "/noteform" && pathname !== "/updateform" && (
+          {(pathname !== "/noteform" && pathname !== "/updateform" && pathname!=="/profile" && pathname!=="/about") && (
             <button onClick={isOpen} className="searchIcondiv">
               <BiSearchAlt className="searchIcon" />
             </button>
@@ -67,7 +67,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {(pathname ==='/home' && pathname==='/LN' && pathname==='/favorites') && (
+        {(pathname !== "/noteform" && pathname !== "/updatenote" && pathname!=="/profile" && pathname!=="/about") && (
           <div className={searchT ? "searchBar" : "searchbar"}>
             <input
               type="search"

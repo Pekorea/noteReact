@@ -11,6 +11,6 @@ export function error(message) {
       return "email or password is incorrect";
 
     default:
-      return "something went wrong";
+      return "something went wrong check your internet connection";
   }
 }

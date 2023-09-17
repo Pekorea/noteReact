@@ -18,6 +18,9 @@
         background: rgb(179, 59, 59);
         
     }*/
+    Link{
+        
+    }
 
     button{
         font-family: 'Montserrat';
@@ -416,6 +419,68 @@
     .textbox::-webkit-scrollbar-thumb{
         background: rgb(179, 59, 59);
         
+    }
+ /*PROFILE*/
+ .profileFile{
+            
+    border:none;
+    width:30%;
+    height:25px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    
+ }
+ .profimgborder{
+    cursor: pointer;
+    border:1px solid white;
+    border-radius: 70px;
+    width: 11rem;
+    height: 10rem;
+    margin-bottom: 13px;
+ }
+ .profileimg_div{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+ .aprofileimg{
+    width:11rem;
+    height:10rem;
+    object-fit: fill;
+    border-radius: 70px;
+ }
+
+
+    /*LOADING*/
+    .loader-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        background: rgba(0, 0, 0, 0.834);
+        z-index: 1;
+    }
+    
+    .spinner {
+        width: 64px;
+        height: 64px;
+        border: 8px solid;
+        border-color: #6e27278e transparent #f7f7f7 transparent;
+        border-radius: 50%;
+        animation: spin-anim 1.2s linear infinite;
+    }
+    
+    @keyframes spin-anim {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 }
 
