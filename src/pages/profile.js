@@ -9,13 +9,21 @@ import { useQuery } from "@tanstack/react-query";
 import { GetData } from "../lib/helper";
 
 export default function Profile() {
+  const [toggle2, setToggle2]= useState(false)
   const { userId } = AuthProvided();
   const [fileInput, setFileInput] = useState();
   function handleChange(e) {
     console.log(e.target.files);
+    try{
     setFileInput(URL.createObjectURL(e.target.files[0]));
     console.log(fileInput);
+    setToggle2(true)
+  }catch(e){
+    toast(e,{duration:2000,icon:'🎈🎈'})
   }
+    
+  }
+ 
 
   return (
     <div className="cont">
@@ -39,18 +47,32 @@ export default function Profile() {
             ></hr>
             <div className="profilediv">
             <div className="profileimg_div">
-              <div className="profimgborder">
-                <img className="aprofileimg" src={fileInput}></img>
+            <div className="profimgborder">
+            <img className="aprofileimg" src={toggle2?fileInput:'notebook1.png'} alt="Profile Picture" />
+            </div>
+
+            <input
+              accept="image/png,image/jpeg"
+              onChange={handleChange}
+              className="profileFile"
+              type="file"
+              />
+
+              <label className="toggle2">{fileInput == null ? `Add a` : `Change`} profile Picture</label>
+
+            </div>
+            <div className="personalinfo">
+              <p>Personal Information</p>
+              <div className="namediv">
+                <label>Your Name:</label>
+                <input type="text"></input>
               </div>
-
-              <input
-                accept="image/png,image/jpeg"
-                onChange={handleChange}
-                className="profileFile"
-                type="file"
-              ></input>
-
-              <p>{fileInput===null ?`Add a`:`Change`} profile Picture</p>
+              <div className="emaildiv">
+                <label>Your Email:</label>
+                <input type="text"></input>
+              </div>
+              
+              
             </div>
             </div>
           </div>

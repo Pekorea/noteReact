@@ -434,13 +434,14 @@
  .profimgborder{
     cursor: pointer;
     border:1px solid white;
-    border-radius: 70px;
+    border-radius: 10px;
     width: 11rem;
     height: 10rem;
     margin-bottom: 13px;
  }
  .profileimg_div{
-    margin-top: 70px;
+    color:white;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -449,9 +450,39 @@
     width:11rem;
     height:10rem;
     object-fit: fill;
-    border-radius: 70px;
+    border-radius: 10px;
  }
 
+ .profilediv{
+    background-color: green;
+    
+    overflow: auto;
+    overflow-x: hidden;
+    background-color: rgba(105, 105, 105, 0.267);
+    height:90%;
+    position: relative;
+ }
+ .profilediv input[type='file']{
+    position: absolute;
+    right:100px;
+    width:160px;
+    top:230px;
+    opacity:0;
+    cursor: pointer;
+    
+ }
+ .toggle2{
+    
+    display: inline-block;
+    color:black;
+    background-color: white;
+    border:2px solid white;
+    border-radius:5px;
+ }
+ .toggle2:hover{
+    background-color: black;
+    color:white;
+ }
 
     /*LOADING*/
     .loader-container {
