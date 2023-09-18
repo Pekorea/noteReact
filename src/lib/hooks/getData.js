@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { db } from "../firebase";
+import { useEffect, useState } from 'react';
+import { db } from '../firebase';
 import {
   collection,
   onSnapshot,
   orderBy,
   query,
   where,
-} from "firebase/firestore";
+} from 'firebase/firestore';
 export default function useGetData(userid) {
   const [data, setNotes] = useState([]);
   const [isloading, setLoading] = useState(true);
@@ -20,9 +20,8 @@ export default function useGetData(userid) {
     }
     setLoading(true);
     const subColRef = query(
-      collection(db, "users", userid, "notes"),
-
-      where("isLocked", "==", true)
+      collection(db, 'users', userid, 'notes'),
+      orderBy('timeStamps', 'desc')
     );
     const unsub = onSnapshot(
       subColRef,

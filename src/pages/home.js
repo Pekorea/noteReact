@@ -1,19 +1,19 @@
-import "../designs/homemindev.css";
-import "../designs/home.css";
+import '../designs/homemindev.css';
+import '../designs/home.css';
 
-import { PopupboxContainer, PopupboxManager } from "react-popupbox";
-import { BsFillBookmarkHeartFill } from "react-icons/bs";
-import { AiFillDelete, AiFillLock } from "react-icons/ai";
-import { Toaster, toast } from "react-hot-toast";
-import Loading from "./loading";
-import { useContext, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import AuthProvided from "../lib/auth";
-import AuthCheck from "../components/AuthComp";
-import { useQuery, useQueryClient } from "@tanstack/react-query";
-import { GetData, deleteNote } from "../lib/helper";
-import useGetData from "../lib/hooks/getData";
-import { AuthContext } from "../lib/context";
+import { PopupboxContainer, PopupboxManager } from 'react-popupbox';
+import { BsFillBookmarkHeartFill } from 'react-icons/bs';
+import { AiFillDelete, AiFillLock } from 'react-icons/ai';
+import { Toaster, toast } from 'react-hot-toast';
+import Loading from './loading';
+import { useContext, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import AuthProvided from '../lib/auth';
+import AuthCheck from '../components/AuthComp';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { GetData, deleteNote, updateNote } from '../lib/helper';
+import useGetData from '../lib/hooks/getData';
+import { AuthContext } from '../lib/context';
 
 function Home() {
   /* const current_date = new Date();
@@ -25,7 +25,7 @@ function Home() {
   const date = `${current_day}/${current_month}/${current_year}-${current_time}`;*/
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
   const nav = useNavigate();
-  const [toggle, setToggle] = useState("");
+  const [toggle, setToggle] = useState('');
   const { userId } = useContext(AuthContext);
   const [display, setDisplay] = useState(true);
   const query = useQueryClient();
@@ -51,56 +51,78 @@ function Home() {
   };*/
   //<p>{current_date}</p>
   return (
-    <div className="cont">
+    <div className='cont'>
       <Toaster />
 
       <PopupboxContainer />
       <AuthCheck>
-        <div className="mainNc">
-          <div className="notescont">
-            <div className="anotes">
+        <div className='mainNc'>
+          <div className='notescont'>
+            <div className='anotes'>
               <h1
                 style={{
-                  display: "flex",
-                  fontSize: "larger",
-                  fontSize: "22px",
-                  justifyContent: "center",
+                  display: 'flex',
+                  fontSize: 'larger',
+                  fontSize: '22px',
+                  justifyContent: 'center',
                 }}
               >
                 NOTES
               </h1>
               <hr
-                style={{ marginBottom: "20px", border: "2px dashed white" }}
+                style={{ marginBottom: '20px', border: '2px dashed white' }}
               ></hr>
-              <div className="notelist">
+              <div className='notelist'>
                 {!data.length ? (
-                  <div className="no_notes">
+                  <div className='no_notes'>
                     <h1>Create a note📒🖋</h1>
                   </div>
                 ) : (
                   data.map((item, i) => (
-                    <div className="notes" key={item.id}>
+                    <div className='notes' key={item.id}>
                       <Link
-                        className="acN"
+                        className='acN'
                         to={`/${userId}/updateform/${item.id}`}
                       >
                         <h3>{item.title}</h3>
-                        <hr className="hrN"></hr>
+                        <hr className='hrN'></hr>
                         <p>{item.body}</p>
                       </Link>
-                      <div className="btn_div">
-                        <button className="btn1">
-                          <AiFillLock />
+                      <div className='btn_div'>
+                        <button
+                          className='btn1'
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isLocked: !item.isLocked,
+                            })
+                          }
+                        >
+                          <AiFillLock
+                            style={{
+                              backgroundColor: item.isLocked ? 'red' : '',
+                            }}
+                          />
                         </button>
-                        <button className="btn2">
-                          <BsFillBookmarkHeartFill />
+                        <button
+                          className='btn2'
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isFavorited: !item.isFavorited,
+                            })
+                          }
+                        >
+                          <BsFillBookmarkHeartFill
+                            style={{
+                              backgroundColor: item.isFavorited ? 'red' : '',
+                            }}
+                          />
                         </button>
                         <button
                           onClick={async (e) => {
                             await deleteNote(item.id, userId);
                           }}
-                          className="btn3"
-                          type="button"
+                          className='btn3'
+                          type='button'
                         >
                           <AiFillDelete />
                           Delete
