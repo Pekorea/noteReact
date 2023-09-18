@@ -38,11 +38,12 @@ export default function Validation() {
     e.preventDefault();
     setLoading(true);
     try {
-      await signIn(email, pass);
+      const userId = await signIn(email, pass);
+
       toast("Successfully logged in", { duration: 3000, icon: "✔" });
       setLoading(false);
       setTimeout(() => {
-        nav("/home");
+        nav(`/home`);
       }, 1000);
     } catch (e) {
       const errorMessage = error(e.code);

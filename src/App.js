@@ -31,7 +31,7 @@ function App() {
                 <Route index element={<Notesform />} />
               </Route>
 
-              <Route path="/updateform">
+              <Route path="/:userId/updateform/:id">
                 <Route index element={<Updateform />} />
               </Route>
 
@@ -42,6 +42,7 @@ function App() {
               <Route path="/signup">
                 <Route index element={<Signup />} />
               </Route>
+
               <Route path="/forgottenp">
                 <Route index element={<Forgotten_password />} />
               </Route>

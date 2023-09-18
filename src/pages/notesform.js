@@ -49,7 +49,7 @@ const Notesform = () => {
       mutation.mutate();
       toast("Note created!", { duration: 1200, icon: "😁✔" });
       setTimeout(() => {
-        nav("/home");
+        nav(-1);
       }, 1500);
     }
   };

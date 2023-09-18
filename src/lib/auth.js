@@ -1,15 +1,15 @@
-import { useState, useEffect } from 'react';
-import { auth } from './firebase';
+import { useState, useEffect } from "react";
+import { auth } from "./firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from 'firebase/auth';
-import { addUser } from './helper';
+} from "firebase/auth";
+import { addUser } from "./helper";
 
 export default function AuthProvided() {
-  const [user, setUser] = useState('');
+  const [user, setUser] = useState("");
 
   const siginUp = async (email, password, name) => {
     try {
@@ -19,6 +19,7 @@ export default function AuthProvided() {
         password
       );
       setUser(userInfo.user.uid);
+
       await addUser(userInfo.user.uid, name);
     } catch (e) {
       throw e;

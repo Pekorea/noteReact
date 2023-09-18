@@ -6,12 +6,14 @@ import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillDelete, AiFillLock } from "react-icons/ai";
 import { Toaster, toast } from "react-hot-toast";
 import Loading from "./loading";
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import AuthCheck from "../components/AuthComp";
-import { useQuery } from "@tanstack/react-query";
-import { GetData } from "../lib/helper";
+import { useQuery, useQueryClient } from "@tanstack/react-query";
+import { GetData, deleteNote } from "../lib/helper";
+import useGetData from "../lib/hooks/getData";
+import { AuthContext } from "../lib/context";
 
 function Home() {
   const current_date = new Date();
@@ -22,21 +24,18 @@ function Home() {
     current_date.getHours() + ":" + current_date.getMinutes();
   const date = `${current_day}/${current_month}/${current_year}-${current_time}`;
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
-const nav = useNavigate();
+  const nav = useNavigate();
   const [toggle, setToggle] = useState("");
-  const { userId } = AuthProvided();
+  const { userId } = useContext(AuthContext);
   const [display, setDisplay] = useState(true);
-  const { data, isLoading } = useQuery({
-    queryKey: ["todos", userId],
-    queryFn: () => GetData(userId),
-  });
+  const query = useQueryClient();
+  const { data, isLoading, isFetching } = useGetData(userId);
 
-  if (isLoading) return <Loading/>;
-  console.log(data);
+  if (isLoading) return <Loading />;
 
-  const updateinc= ()=>{
-    nav('/updateform')
-  }
+  const updateinc = () => {
+    nav("/updateform");
+  };
   /*
   console.data(data.docs);
   const closePopupbox = () => {
@@ -82,14 +81,16 @@ const nav = useNavigate();
                     <h1>Create a note📒🖋</h1>
                   </div>
                 ) : (
-                  
-                  data.map((item) => (
+                  data.map((item, i) => (
                     <div className="notes" key={item.id}>
-                      <div onClick={updateinc} className="acN">
+                      <Link
+                        className="acN"
+                        to={`/${userId}/updateform/${item.id}`}
+                      >
                         <h3>{item.title}</h3>
                         <hr className="hrN"></hr>
                         <p>{item.body}</p>
-                      </div>
+                      </Link>
                       <div className="btn_div">
                         <button className="btn1">
                           <AiFillLock />
@@ -97,7 +98,13 @@ const nav = useNavigate();
                         <button className="btn2">
                           <BsFillBookmarkHeartFill />
                         </button>
-                        <button className="btn3">
+                        <button
+                          onClick={async (e) => {
+                            await deleteNote(item.id, userId);
+                          }}
+                          className="btn3"
+                          type="button"
+                        >
                           <AiFillDelete />
                           Delete
                         </button>

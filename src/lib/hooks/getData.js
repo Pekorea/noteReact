@@ -1,20 +1,29 @@
-import { useEffect, useState } from 'react';
-import { db } from '../firebase';
-import { collection, onSnapshot } from 'firebase/firestore';
+import { useEffect, useState } from "react";
+import { db } from "../firebase";
+import { collection, onSnapshot, orderBy, query } from "firebase/firestore";
 export default function useGetData(userid) {
-  const [notes, setNotes] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [data, setNotes] = useState([]);
+  const [isloading, setLoading] = useState(true);
   const [error, setError] = useState();
 
   useEffect(() => {
-    if (!userid) return;
+    if (!userid) {
+      // Return early if userid is falsy
+      setLoading(false);
+      return;
+    }
     setLoading(true);
-    const subColRef = collection(db, 'users', userid, 'notes');
+    const subColRef = query(
+      collection(db, "users", userid, "notes"),
+      orderBy("timeStamps", "desc")
+    );
     const unsub = onSnapshot(
       subColRef,
       (snap) => {
         const newArray = [];
-        snap.forEach((doc) => newArray.push(doc.data()));
+
+        snap.forEach((doc) => newArray.push({ ...doc.data(), id: doc.id }));
+        console.log(newArray);
         setNotes(newArray);
         setLoading(false);
       },
@@ -28,8 +37,8 @@ export default function useGetData(userid) {
     return () => unsub();
   }, [userid]);
   return {
-    notes,
-    loading,
+    data,
+    isloading,
     error,
   };
 }

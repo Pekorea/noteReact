@@ -51,11 +51,14 @@ const Navbar = () => {
               </h1>
             </Link>
           </header>
-          {(pathname !== "/noteform" && pathname !== "/updateform" && pathname!=="/profile" && pathname!=="/about") && (
-            <button onClick={isOpen} className="searchIcondiv">
-              <BiSearchAlt className="searchIcon" />
-            </button>
-          )}
+          {pathname !== "/noteform" &&
+            pathname !== "/updateform" &&
+            pathname !== "/profile" &&
+            pathname !== "/about" && (
+              <button onClick={isOpen} className="searchIcondiv">
+                <BiSearchAlt className="searchIcon" />
+              </button>
+            )}
           <ul className="list-items">
             <li>
               <Link to="/noteform">
@@ -67,124 +70,133 @@ const Navbar = () => {
           </ul>
         </div>
 
-        {(pathname !== "/noteform" && pathname !== "/updatenote" && pathname!=="/profile" && pathname!=="/about") && (
-          <div className={searchT ? "searchBar" : "searchbar"}>
-            <input
-              type="search"
-              value={onSearch}
-              onChange={searching}
-              placeholder="Search notes..."
-            ></input>
-          </div>
-        )}
+        {pathname !== "/noteform" &&
+          pathname !== "/updatenote" &&
+          pathname !== "/profile" &&
+          pathname !== "/about" && (
+            <div className={searchT ? "searchBar" : "searchbar"}>
+              <input
+                type="search"
+                value={onSearch}
+                onChange={searching}
+                placeholder="Search notes..."
+              ></input>
+            </div>
+          )}
       </div>
       <div className={toggle ? "hsidebarcont" : "hsidebarconts"}>
         <ul className="sb-items">
-          {pathname ==='/profile'? 
-          <Link
-            to="/profile"
-            style={{
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li style={{background:'white',color:'black'}}>
+          {pathname === "/profile" ? (
+            <Link
+              to="/profile"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li style={{ background: "white", color: "black" }}>
+                <div>
+                  <img className="profimg" src="notebook1.png"></img>
+                </div>
+                PROFILE
+              </li>
+            </Link>
+          ) : (
+            <Link
+              to="/profile"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <div>
+                  <img className="profimg" src="notebook1.png"></img>
+                </div>
+                PROFILE
+              </li>
+            </Link>
+          )}
+          {pathname === "/favorite" ? (
+            <Link
+              to="/favorite"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li style={{ background: "white", color: "black" }}>
+                <div>
+                  <BsFillBookmarkHeartFill />
+                </div>
+                Favourites
+              </li>
+            </Link>
+          ) : (
+            <Link
+              to="/favorite"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <div>
+                  <BsFillBookmarkHeartFill />
+                </div>
+                Favourites
+              </li>
+            </Link>
+          )}
+
+          {pathname === "/LN" ? (
+            <Link
+              to="/LN"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li style={{ background: "white", color: "black" }}>
+                <div>
+                  <AiFillLock />
+                </div>
+                Locked notes
+              </li>
+            </Link>
+          ) : (
+            <Link
+              to="/LN"
+              style={{
+                textDecoration: "none",
+                color: "white",
+              }}
+            >
+              <li>
+                <div>
+                  <AiFillLock />
+                </div>
+                Locked notes
+              </li>
+            </Link>
+          )}
+
+          {pathname === "/about" ? (
+            <li style={{ background: "white", color: "black" }}>
               <div>
-                <img className="profimg" src="notebook1.png"></img>
+                <FcAbout />
               </div>
-              PROFILE
+              About
             </li>
-          </Link>: <Link
-            to="/profile"
-            style={{
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
+          ) : (
             <li>
               <div>
-                <img className="profimg" src="notebook1.png"></img>
+                <FcAbout />
               </div>
-              PROFILE
+              About
             </li>
-          </Link>
-          
-        }
-        {pathname ==='/favorite'?
-        <Link
-            to="/favorite"
-            style={{
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li style={{background:'white',color:'black'}} >
-              <div>
-                <BsFillBookmarkHeartFill />
-              </div>
-              Favourites
-            </li>
-          </Link>
-          :<Link
-          to="/favorite"
-          style={{
-            textDecoration: "none",
-            color: "white",
-          }}
-        >
-          <li>
-            <div>
-              <BsFillBookmarkHeartFill />
-            </div>
-            Favourites
-          </li>
-        </Link>
-          }
-          
-          {pathname==='/LN'?
-          <Link
-            to="/LN"
-            style={{
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li style={{background:'white',color:'black'}}>
-              <div>
-                <AiFillLock />
-              </div>
-              Locked notes
-            </li>
-          </Link>:<Link
-            to="/LN"
-            style={{
-              textDecoration: "none",
-              color: "white",
-            }}
-          >
-            <li>
-              <div>
-                <AiFillLock />
-              </div>
-              Locked notes
-            </li>
-          </Link>
-          }
-          
-          {pathname==='/about'?
-          <li style={{background:'white',color:'black'}}>
-            <div>
-              <FcAbout />
-            </div>
-            About
-          </li>:
-          <li >
-            <div>
-              <FcAbout />
-            </div>
-            About
-          </li>}
-          
+          )}
+
           <li
             onClick={() => {
               signOutF().then(() => {
