@@ -16,13 +16,13 @@ import useGetData from "../lib/hooks/getData";
 import { AuthContext } from "../lib/context";
 
 function Home() {
-  const current_date = new Date();
+  /* const current_date = new Date();
   const current_day = current_date.getDate();
   const current_month = current_date.getMonth() + 1;
   const current_year = current_date.getFullYear();
   const current_time =
     current_date.getHours() + ":" + current_date.getMinutes();
-  const date = `${current_day}/${current_month}/${current_year}-${current_time}`;
+  const date = `${current_day}/${current_month}/${current_year}-${current_time}`;*/
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
   const nav = useNavigate();
   const [toggle, setToggle] = useState("");
@@ -33,9 +33,6 @@ function Home() {
 
   if (isLoading) return <Loading />;
 
-  const updateinc = () => {
-    nav("/updateform");
-  };
   /*
   console.data(data.docs);
   const closePopupbox = () => {
