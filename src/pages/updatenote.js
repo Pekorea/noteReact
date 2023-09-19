@@ -31,11 +31,15 @@ const Updateform = () => {
  
   console.log(data);
 
+  
   //const { userId } = AuthProvided();
   /* const mutation = useMutation({
     //mutationFn: () => AddNote({ title, body }, userId),
   });*/
 
+  const clears = () => {
+    ("");
+  };
   //const textcontent= textObject.value
   if (isLoading) return <Loading />;
   const updatenotes = (e) => {
@@ -106,9 +110,7 @@ const Updateform = () => {
             <button className='Savebtn' type='submit'>
               UPDATE
             </button>
-            <button className='buttun' type='button'>
-              CLEAR
-            </button>
+            
           </div>
         </form>
       </div>

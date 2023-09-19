@@ -1,25 +1,30 @@
 import '../designs/homemindev.css';
 import '../designs/home.css';
 //import { PopupboxContainer, PopupboxManager } from 'react-popupbox';
-import { BsFillBookmarkHeartFill } from "react-icons/bs";
-import { AiFillDelete, AiFillLock } from "react-icons/ai";
 import { Toaster, toast } from 'react-hot-toast';
-
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { PopupboxContainer, PopupboxManager } from 'react-popupbox';
+import { BsFillBookmarkHeartFill } from 'react-icons/bs';
+import { AiFillDelete, AiFillLock } from 'react-icons/ai';
+import { useContext, useState } from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import AuthProvided from '../lib/auth';
 import AuthCheck from '../components/AuthComp';
-import { useQuery } from '@tanstack/react-query';
-import { GetData } from '../lib/helper';
+import { useQuery, useQueryClient } from '@tanstack/react-query';
+import { getLock, deleteNote, updateNote } from '../lib/helper';
+import useGetData from '../lib/hooks/getData';
+import { AuthContext } from '../lib/context';
+import Loading from './loading';
+
+
 function Locked() {
   const [toggle, setToggle] = useState('');
-  const { userId } = AuthProvided();
-  /*const { data, isLoading } = useQuery({
-    queryKey: ['todos', userId],
-    queryFn: () => GetData(userId),
-  });
-  if (isLoading) return <h1>loading</h1>;
-  console.log(data);*/
+  const { userId } = useContext(AuthContext);
+  const lock = getLock(userId)
+  const { data, isLoading, isFetching } = useGetData(userId);
+  
+  console.log(lock)
+  if (isLoading) return <Loading/>;
+  console.log(data);
 
 
   /*
@@ -63,26 +68,64 @@ function Locked() {
               <div className='notes' >
                    
                 </div>
-             {/*key={item.id} {data &&
-                data.map((item) => (
-                  <div className='acN'>
-                      <h3>{item.title}</h3>
-                      <hr className='hrN'></hr>
-                      <p>{item.body}</p>
-                    </div>
-                    <div className='btn_div'>
-                    <button className='btn1'><AiFillLock/></button>
-                    <button className='btn2'><BsFillBookmarkHeartFill/></button>
-                    <button className='btn3'><AiFillDelete/>Delete</button>
-                    </div>
-                  //check line 57 i put the current date with time code there
+                {!data.length ? (
+                  <div className='no_notes'>
+                    <h1>Create a note📒🖋</h1>
                   </div>
-                  
-                )):
-                <div className='no_notes'> 
-                  <h1>No Locked Notes🔒📒</h1>
-                </div>
-                ))}*/}
+                ) : (
+                  data.map((item, i) => (
+                    <div className='notes' key={item.id}>
+                      <Link
+                        className='acN'
+                        to={`/${userId}/updateform/${item.id}`}
+                      >
+                        <h3>{item.title}</h3>
+                        <hr className='hrN'></hr>
+                        <p>{item.body}</p>
+                      </Link>
+                      <div className='btn_div'>
+                        <button
+                          className='btn1'
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isLocked: !item.isLocked,
+                            })
+                          }
+                        >
+                          <AiFillLock
+                            style={{
+                              backgroundColor: item.isLocked ? 'red' : '',
+                            }}
+                          />
+                        </button>
+                        <button
+                          className='btn2'
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isFavorited: !item.isFavorited,
+                            })
+                          }
+                        >
+                          <BsFillBookmarkHeartFill
+                            style={{
+                              backgroundColor: item.isFavorited ? 'red' : '',
+                            }}
+                          />
+                        </button>
+                        <button
+                          onClick={async (e) => {
+                            await deleteNote(item.id, userId);
+                          }}
+                          className='btn3'
+                          type='button'
+                        >
+                          <AiFillDelete />
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
 
       
             </div>

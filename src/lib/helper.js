@@ -1,6 +1,6 @@
 import { db } from './firebase';
 import {
-  setDoc,
+  query,setDoc,
   doc,
   addDoc,
   collection,
@@ -9,6 +9,7 @@ import {
   getDoc,
   updateDoc,
   deleteDoc,
+  where,
 } from 'firebase/firestore';
 
 export async function addUser(user, name) {
@@ -37,6 +38,48 @@ export async function AddNote(note, userid) {
     throw e;
   }
 }
+export async function getLock(userId){
+  if(!userId) return [];
+  try{
+    let notes =[];
+    const collectionref = query(collection(db,'users',userId,'notes'), where('isLocked','==',true))
+    const querySnapshot = await getDocs(collectionref);
+    querySnapshot.forEach((doc)=>{
+      notes.push(...doc.data());
+    })
+    if (notes && notes.indexOf) {
+      return notes;
+    } else {
+      getLock(userId);
+    }
+    return notes
+  }catch(e){
+    console.error('Error fetching Locked notes: ',e)
+    throw new Error (e);
+  }
+}
+
+export async function getFave(userId){
+  if(!userId) return [];
+  try{
+    let notes =[];
+    const collectionref = query(collection(db,'users',userId,'notes'), where('isFavorite','==',true))
+    const querySnapshot = await getDocs(collectionref);
+    querySnapshot.forEach((doc)=>{
+      notes.push(...doc.data());
+    })
+    if (notes && notes.indexOf) {
+      return notes;
+    } else {
+      getFave(userId);
+    }
+    return notes
+  }catch(e){
+    console.error('Error fetching Locked notes: ',e)
+    throw new Error (e);
+  }
+}
+
 
 export async function GetData(userid) {
   if (!userid) return [];

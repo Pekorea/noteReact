@@ -276,8 +276,8 @@
         display: flex;
         flex-direction: column;
         width: 60%;
-        overflow: hidden;
-        overflow-y: auto;
+        overflow:hidden;
+        
     }
     .btn_div{
         padding-left: 5px;
@@ -319,20 +319,21 @@
     }
     .notes h3{
         position:absolute;
-        top:-14px;
+        top:-3px;
         padding-left: 10px;
         font-size: 18px;
-        display: flex;
-        align-items: flex-start;
+        
         
     }
     .notes p{
+        /*
         padding-left: 5px;
         position: absolute;
         top:30px;
         font-size: 13px;
         bottom: 5px;
-        
+        text-overflow: ellipsis;*/
+        display: none;
     }
         
     .noteform{
