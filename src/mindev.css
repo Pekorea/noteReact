@@ -27,7 +27,7 @@
   .nothead_div{
     width:100%;
     background-color: black;
-    color:white;
+    color:#63311b;
     font-family: 'Orbitron';
     height:100px;
     position: sticky;
@@ -56,29 +56,29 @@
     justify-content: center;
   }
   hr {
-    border: 1px dashed white;
+    border: 1px dashed black;
     width: 100%;
   }
   .form {
       gap: 10px;
-      border: 1px solid white;
+      border: 1px solid black;
       border-radius: 10px;
       padding: 10px;
       height: 440px;
       background-color: transparent;
       width: 300px;
-      color: white;
+      color: black;
   }
 
   .forms {
       gap: 10px;
-      border: 1px solid white;
+      border: 1px solid black;
       border-radius: 10px;
       padding: 10px;
       height: 520px;
       background-color: transparent;
       width: 300px;
-      color: white
+      color: black
   }
    .checkbos {
        position: relative;
@@ -90,7 +90,7 @@
    }
 
    .linkto{
-    color:green;
+    color:burlywood;
    }
    .view{    
        font-size: small;
@@ -108,9 +108,9 @@
        font-size: large;
        font-weight: bold;
        cursor: pointer;
-       transition: .2s ease-in;
+       transition: .7s ease-in;
        background-color: black;
-       color: white;
+       color: #63311b;
        font-family: 'Montserrat';
        padding-bottom: 25px;
        padding-top: 10px;
@@ -118,12 +118,12 @@
 
    .logbtn:hover {
        color: black;
-       background: white;
+       background: burlywood;
    }
 
    .logbtn:active {
-       color: white;
-       background-color: green;
+       color: black;
+       background-color: burlywood;
    }
 
    label {
@@ -167,14 +167,14 @@
    }
 
    input {
-    color:white;
+    color:black;
        width: 80%;
        height: 45px;
        font-family: 'Montserrat';
        background-color: transparent;
        border: none;
        outline: none;
-       border-bottom: 2px solid white;
+       border-bottom: 2px solid burlywood;
        font-size: medium;
        transition: .5s ease-in;
    }
@@ -225,7 +225,7 @@
       display:none;
     }
     .Einput{
-      border-bottom:2px solid white;
+      border-bottom:2px solid burlywood;
       background-color: transparent;
       height: 40px;
     }
@@ -236,7 +236,7 @@
     
         .ediv label {
           position: absolute;
-          color: white;
+          color: black;
           left: 3px;
         }
     
@@ -254,7 +254,7 @@
         }
     
         .forp {
-          border: 2px solid white;
+          border: 2px solid black;
           width: 340px;
           height: 270px;
           border-radius: 15px;
@@ -283,19 +283,21 @@
         }
     
         .subbutton:hover {
-          background: linear-gradient(to left,rgb(0, 0, 0) 0%, #857c78 50%, rgb(133, 131, 131)  100%);
+          background: burlywood;
           color: black
         }
     
         .subbutton:active {
-          background-color: green;
-          color: white;
+          background-color: burlywood;
+          color: black;
         }
     
         .fheader {
           display: flex;
-          font-family: 'Poppins';
+          font-size: x-large;
+          font-family: 'Orbitron';
           justify-content: center;
+          color: black;
         }
   
     /*
