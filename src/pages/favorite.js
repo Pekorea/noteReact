@@ -1,67 +1,88 @@
-import '../designs/homemindev.css';
-import '../designs/home.css';
-import { Toaster, toast } from 'react-hot-toast';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import AuthProvided from '../lib/auth';
-import AuthCheck from '../components/AuthComp';
-import { useQuery } from '@tanstack/react-query';
-import { GetData } from '../lib/helper';
+import "../designs/homemindev.css";
+import "../designs/home.css";
+import { Toaster, toast } from "react-hot-toast";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import AuthProvided from "../lib/auth";
+import AuthCheck from "../components/AuthComp";
+import { useQuery } from "@tanstack/react-query";
+import { GetData, getFave } from "../lib/helper";
+import Loading from "./loading";
 
 export default function Favourites() {
   const { userId } = AuthProvided();
+  const [data, setDatum] = useState();
+  const [isLoading, setLoading] = useState(false);
+  console.log(userId);
   /*const { data, isLoading } = useQuery({
     queryKey: ['todos', userId],
     queryFn: () => GetData(userId),
   });
   if (isLoading) return <h1>loading</h1>;
   console.log(data);*/
+  useEffect(() => {
+    setLoading(true);
+
+    async function fetchData() {
+      try {
+        const favoriteNotes = await getFave(userId);
+        setLoading(false);
+        console.log("Favorite Notes:", favoriteNotes);
+        setDatum(favoriteNotes);
+      } catch (error) {
+        console.error("Error fetching favorite notes:", error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchData();
+  }, [userId]);
+
+  //console.log(datum);
+  if (isLoading) return <Loading />;
+
   return (
-    <div className='cont'>
+    <div className="cont">
       <Toaster />
 
       <AuthCheck>
-        <div className='mainNc'>
-          <div className='notescont'>
-            <div className='anotes'>
+        <div className="mainNc">
+          <div className="notescont">
+            <div className="anotes">
               <h1
                 style={{
-                  display: 'flex',
-                  fontSize: 'larger',
-                  fontSize: '22px',
-                  justifyContent: 'center',
+                  display: "flex",
+                  fontSize: "larger",
+                  fontSize: "22px",
+                  justifyContent: "center",
                 }}
               >
                 FAVOURITES
               </h1>
               <hr
-                style={{ marginBottom: '20px', border: '2px dashed white' }}
+                style={{ marginBottom: "20px", border: "2px dashed white" }}
               ></hr>
-              <div className='notes' >
-                   
+              <div className="notes"></div>
+              {!data ? (
+                <div className="no_notes">
+                  <h1>Create a note📒🖋</h1>
                 </div>
-             {/*key={item.id} {data &&
-                data.map((item) => (
-                  <div className='acN'>
+              ) : (
+                data.map((item, i) => (
+                  <div className="notes" key={item.id}>
+                    <Link
+                      className="acN"
+                      to={`/${userId}/updateform/${item.id}`}
+                    >
                       <h3>{item.title}</h3>
-                      <hr className='hrN'></hr>
+                      <hr className="hrN"></hr>
                       <p>{item.body}</p>
-                    </div>
-                    <div className='btn_div'>
-                    <button className='btn1'><AiFillLock/></button>
-                    <button className='btn2'><BsFillBookmarkHeartFill/></button>
-                    <button className='btn3'><AiFillDelete/>Delete</button>
-                    </div>
-                  //check line 57 i put the current date with time code there
+                    </Link>
+                    <div className="btn_div"></div>
                   </div>
-                  
-                )):
-                <div className='no_notes'> 
-                  <h1>No Favourite Notes🔒📒</h1>
-                </div>
-                ))}*/}
-
-      
+                ))
+              )}
             </div>
           </div>
         </div>

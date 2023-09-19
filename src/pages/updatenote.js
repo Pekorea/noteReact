@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import { getOneNote, updateNote } from '../lib/helper';
-import { serverTimestamp } from 'firebase/firestore';
+import { getOneNote, updateNote } from "../lib/helper";
+import { serverTimestamp } from "firebase/firestore";
 
-import { Toaster, toast } from 'react-hot-toast';
-import { useNavigate, useParams } from 'react-router';
-import { useQueryClient } from '@tanstack/react-query';
-import Loading from './loading';
+import { Toaster, toast } from "react-hot-toast";
+import { useNavigate, useParams } from "react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import Loading from "./loading";
 
 const Updateform = () => {
   const nav = useNavigate();
@@ -48,31 +48,31 @@ const Updateform = () => {
     const title = e.target.title.value;
     const body = e.target.body.value;
     if (title.length === 0 || body.length === 0) {
-      toast('Fill the Text fields appropriately!', {
+      toast("Fill the Text fields appropriately!", {
         duration: 2000,
-        icon: '🚩🚩',
+        icon: "🚩🚩",
       });
     } else if (title.length < 3 || title.length > 35) {
-      toast('Title minlength is 3 and max is 15', {
+      toast("Title minlength is 3 and max is 15", {
         duration: 2000,
-        icon: '❗❗',
+        icon: "❗❗",
       });
     } else if (body.length < 3) {
-      toast('Text minlength is 3', {
+      toast("Text minlength is 3", {
         duration: 2000,
-        icon: '❗❗',
+        icon: "❗❗",
       });
     } else if (body.length > 3500) {
-      toast('TEXT maxlength is 3500 Characters', {
+      toast("TEXT maxlength is 3500 Characters", {
         duration: 2000,
-        icon: '❗❗',
+        icon: "❗❗",
       });
     } else {
       updateNote(id, userId, { title, body, timeStamps: serverTimestamp() });
-      query.invalidateQueries({ queryKey: ['notes'] });
-      toast('Note Updated!', { duration: 1200, icon: '✔' });
+      query.invalidateQueries({ queryKey: ["notes"] });
+      toast("Note Updated!", { duration: 1200, icon: "✔" });
       setTimeout(() => {
-        nav('/home');
+        nav("/home");
       }, 1500);
     }
   };
@@ -80,37 +80,36 @@ const Updateform = () => {
   return (
     <div>
       <Toaster />
-      <div className='noteform'>
-        <form onSubmit={updatenotes} className='notesform'>
+      <div className="noteform">
+        <form onSubmit={updatenotes} className="notesform">
           <h1>UPDATE NOTE</h1>
           <hr></hr>
           <input
             minLength={3}
-            type='text'
+            type="text"
             defaultValue={data?.title}
-            placeholder='TITLE...'
-            className='titlebox'
+            placeholder="TITLE..."
+            className="titlebox"
             maxLength={30}
-            name='title'
+            name="title"
           />
-          <div className='textbox_div'>
+          <div className="textbox_div">
             <textarea
               minLength={2}
               defaultValue={data?.body}
-              type='text'
+              type="text"
               rows={10}
               maxLength={3500}
-              placeholder='Enter your text here'
-              className='textbox'
-              name='body'
+              placeholder="Enter your text here"
+              className="textbox"
+              name="body"
             />
           </div>
 
-          <div className='notesbtn_div'>
-            <button className='Savebtn' type='submit'>
+          <div className="notesbtn_div">
+            <button className="Savebtn" type="submit">
               UPDATE
             </button>
-            
           </div>
         </form>
       </div>
