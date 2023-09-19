@@ -11,7 +11,6 @@ export default function useGetData(userid) {
   const [data, setNotes] = useState([]);
   const [isloading, setLoading] = useState(true);
   const [error, setError] = useState();
-  const [realdata, setRealdata] = useState([]);
 
   useEffect(() => {
     if (!userid) {
@@ -23,7 +22,9 @@ export default function useGetData(userid) {
     const subColRef = query(
       collection(db, "users", userid, "notes"),
       orderBy("timeStamps", "desc")
+      //where("isLocked", "==", false)
     );
+    console.log(subColRef);
     const unsub = onSnapshot(
       subColRef,
       (snap) => {
