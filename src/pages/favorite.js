@@ -6,41 +6,16 @@ import { Link } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import AuthCheck from "../components/AuthComp";
 import { useQuery } from "@tanstack/react-query";
-import { GetData, getFave } from "../lib/helper";
+import { updateNote, deleteNote, useGetFave } from "../lib/helper";
+import { BsFillBookmarkHeartFill } from "react-icons/bs";
+import { AiFillDelete, AiFillLock } from "react-icons/ai";
+
 import Loading from "./loading";
 
 export default function Favourites() {
   const { userId } = AuthProvided();
-  const [data, setDatum] = useState();
-  const [isLoading, setLoading] = useState(false);
-  console.log(userId);
-  /*const { data, isLoading } = useQuery({
-    queryKey: ['todos', userId],
-    queryFn: () => GetData(userId),
-  });
-  if (isLoading) return <h1>loading</h1>;
-  console.log(data);*/
-  useEffect(() => {
-    setLoading(true);
-
-    async function fetchData() {
-      try {
-        const favoriteNotes = await getFave(userId);
-        setLoading(false);
-        console.log("Favorite Notes:", favoriteNotes);
-        setDatum(favoriteNotes);
-      } catch (error) {
-        console.error("Error fetching favorite notes:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchData();
-  }, [userId]);
-
-  //console.log(datum);
-  if (isLoading) return <Loading />;
+  const { data, isloading, error } = useGetFave(userId);
+  if (isloading) return <Loading />;
 
   return (
     <div className="cont">
@@ -64,12 +39,12 @@ export default function Favourites() {
                 style={{ marginBottom: "20px", border: "2px dashed white" }}
               ></hr>
               <div className="notes"></div>
-              {!data ? (
+              {!data.length ? (
                 <div className="no_notes">
-                  <h1>Create a note📒🖋</h1>
+                  <h1>No favorite notes📒🖋</h1>
                 </div>
               ) : (
-                data.map((item, i) => (
+                data.map((item) => (
                   <div className="notes" key={item.id}>
                     <Link
                       className="acN"
@@ -79,7 +54,46 @@ export default function Favourites() {
                       <hr className="hrN"></hr>
                       <p>{item.body}</p>
                     </Link>
-                    <div className="btn_div"></div>
+                    <div className="btn_div">
+                      <button
+                        className="btn1"
+                        onClick={(e) =>
+                          updateNote(item.id, userId, {
+                            isLocked: !item.isLocked,
+                          })
+                        }
+                        style={{
+                          background: item.isLocked ? "purple" : "",
+                          color: item.isLocked ? "white" : "",
+                        }}
+                      >
+                        <AiFillLock />
+                      </button>
+                      <button
+                        className="btn2"
+                        onClick={(e) =>
+                          updateNote(item.id, userId, {
+                            isFavorited: !item.isFavorited,
+                          })
+                        }
+                        style={{
+                          background: item.isFavorited ? "green" : "",
+                          color: "white",
+                        }}
+                      >
+                        <BsFillBookmarkHeartFill />
+                      </button>
+                      <button
+                        onClick={async (e) => {
+                          await deleteNote(item.id, userId);
+                        }}
+                        className="btn3"
+                        type="button"
+                      >
+                        <AiFillDelete />
+                        Delete
+                      </button>
+                    </div>
                   </div>
                 ))
               )}

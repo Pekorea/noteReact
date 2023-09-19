@@ -181,22 +181,6 @@ const Navbar = () => {
             </Link>
           )}
 
-          {pathname === "/about" ? (
-            <li style={{ background: "white", color: "black" }}>
-              <div>
-                <FcAbout />
-              </div>
-              About
-            </li>
-          ) : (
-            <li>
-              <div>
-                <FcAbout />
-              </div>
-              About
-            </li>
-          )}
-
           <li
             onClick={() => {
               signOutF().then(() => {

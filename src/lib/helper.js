@@ -1,4 +1,5 @@
 import { db } from "./firebase";
+import { useState, useEffect } from "react";
 import {
   query,
   setDoc,
@@ -11,6 +12,8 @@ import {
   updateDoc,
   deleteDoc,
   where,
+  onSnapshot,
+  orderBy,
 } from "firebase/firestore";
 
 export async function addUser(user, name) {
@@ -49,13 +52,9 @@ export async function getLock(userId) {
     );
     const querySnapshot = await getDocs(collectionref);
     querySnapshot.forEach((doc) => {
-      notes.push(...doc.data());
+      notes.push({ ...doc.data(), id: doc.id });
     });
-    if (notes && notes.indexOf) {
-      return notes;
-    } else {
-      getLock(userId);
-    }
+
     return notes;
   } catch (e) {
     console.error("Error fetching Locked notes: ", e);
@@ -63,46 +62,113 @@ export async function getLock(userId) {
   }
 }
 
-export async function getFave(userId) {
-  if (!userId) return [];
-  try {
-    let notes = [];
-    const collectionref = query(
-      collection(db, "users", userId, "notes"),
-      where("isFavorited", "==", true)
-    );
+// export async function getFave(userId) {
+//   if (!userId) return [];
+//   try {
+//     let notes = [];
+//     const collectionref = query(
+//       collection(db, "users", userId, "notes"),
+//       where("isFavorited", "==", true)
+//     );
 
-    const querySnapshot = await getDocs(collectionref);
-    querySnapshot.forEach((doc) => {
-      notes.push({ ...doc.data(), id: doc.id });
-    });
+//     const querySnapshot = await getDocs(collectionref);
+//     querySnapshot.forEach((doc) => {
+//       notes.push({ ...doc.data(), id: doc.id });
+//     });
 
-    return notes;
-  } catch (e) {
-    console.error("Error fetching Favorite notes: ", e);
-    throw new Error(e);
-  }
-}
+//     return notes;
+//   } catch (e) {
+//     console.error("Error fetching Favorite notes: ", e);
+//     throw new Error(e);
+//   }
+// }
 
-export async function GetData(userid) {
-  if (!userid) return [];
-  try {
-    let notes = [];
-    const subColRef = collection(db, "users", userid, "notes");
-    const data = await getDocs(subColRef);
-    data.forEach((doc) => {
-      notes.push({ ...doc.data(), id: doc.id });
-    });
-    if (notes && notes.indexOf) {
-      return notes;
-    } else {
-      GetData(userid);
+export function useGetFave(userid) {
+  const [data, setData] = useState([]);
+  const [isloading, setLoading] = useState(true);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    setLoading(true);
+    if (!userid) {
+      // Return early if userid is falsy
+      setLoading(false);
+      return;
     }
 
-    return notes;
-  } catch (e) {
-    throw new Error(e);
-  }
+    const subColRef = query(
+      collection(db, "users", userid, "notes"),
+      where("isFavorited", "==", true)
+    );
+    const unsub = onSnapshot(
+      subColRef,
+      (snap) => {
+        const newArray = [];
+
+        snap.forEach((doc) => newArray.push({ ...doc.data(), id: doc.id }));
+
+        setData(newArray);
+        setLoading(false);
+      },
+
+      (err) => {
+        setError(err);
+        setLoading(false);
+      }
+    );
+
+    return () => unsub();
+  }, [userid]);
+  console.log(data);
+  return {
+    data,
+    isloading,
+    error,
+  };
+}
+
+export function useGetLocked(userid) {
+  const [data, setData] = useState([]);
+  const [isloading, setLoading] = useState(true);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    setLoading(true);
+    if (!userid) {
+      // Return early if userid is falsy
+      setLoading(false);
+      return;
+    }
+
+    const subColRef = query(
+      collection(db, "users", userid, "notes"),
+      where("isLocked", "==", true)
+    );
+    const unsub = onSnapshot(
+      subColRef,
+      (snap) => {
+        const newArray = [];
+
+        snap.forEach((doc) => newArray.push({ ...doc.data(), id: doc.id }));
+
+        setData(newArray);
+        setLoading(false);
+      },
+
+      (err) => {
+        setError(err);
+        setLoading(false);
+      }
+    );
+
+    return () => unsub();
+  }, [userid]);
+  console.log(data);
+  return {
+    data,
+    isloading,
+    error,
+  };
 }
 
 export async function getOneNote(noteId, userId) {
