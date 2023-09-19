@@ -62,7 +62,6 @@ function Locked() {
               <hr
                 style={{ marginBottom: "20px", border: "2px dashed white" }}
               ></hr>
-              <div className="notes"></div>
               {!data.length ? (
                 <div className="no_notes">
                   <h1>No locked notes📒🖋</h1>
@@ -87,8 +86,8 @@ function Locked() {
                           })
                         }
                         style={{
-                          background: item.isLocked ? "purple" : "",
-                          color: item.isLocked ? "white" : "",
+                          background: item.isLocked ? "burlywood" : "",
+                          color: item.isLocked ? "black" : "",
                         }}
                       >
                         <AiFillLock />
@@ -101,8 +100,8 @@ function Locked() {
                           })
                         }
                         style={{
-                          background: item.isFavorited ? "green" : "",
-                          color: item.isFavorited ? "white" : "",
+                          background: item.isFavorited ? "yellow" : "",
+                          color: item.isFavorited ? "black" : "",
                         }}
                       >
                         <BsFillBookmarkHeartFill />

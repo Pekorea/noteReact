@@ -24,11 +24,9 @@ function Home() {
     current_date.getHours() + ":" + current_date.getMinutes();
   const date = `${current_day}/${current_month}/${current_year}-${current_time}`;*/
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
-  const nav = useNavigate();
   const [toggle, setToggle] = useState("");
   const { userId } = useContext(AuthContext);
   const [display, setDisplay] = useState(true);
-  const query = useQueryClient();
   const { data, isLoading } = useGetData(userId);
 
   if (isLoading) return <Loading />;
@@ -91,14 +89,15 @@ function Home() {
                       <div className="btn_div">
                         <button
                           className="btn1"
-                          onClick={(e) =>
+                          onClick={(e) => {
+                            setDisplay(!display); // Toggle the display state
                             updateNote(item.id, userId, {
-                              isLocked: !item.isLocked,
-                            })
-                          }
+                              isLocked: !item.isLocked, // Toggle the isLocked property
+                            });
+                          }}
                           style={{
-                            background: item.isLocked ? "purple" : "",
-                            color: item.isLocked ? "white" : "",
+                            background: item.isLocked ? "burlywood" : "",
+                            color: item.isLocked ? "black" : "",
                           }}
                         >
                           <AiFillLock />
@@ -111,8 +110,8 @@ function Home() {
                             })
                           }
                           style={{
-                            background: item.isFavorited ? "green" : "",
-                            color: item.isFavorited ? "white" : "",
+                            background: item.isFavorited ? "yellow" : "",
+                            color: item.isFavorited ? "black" : "",
                           }}
                         >
                           <BsFillBookmarkHeartFill style={{ width: "20px" }} />

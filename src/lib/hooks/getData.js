@@ -11,6 +11,7 @@ export default function useGetData(userid) {
   const [data, setNotes] = useState([]);
   const [isloading, setLoading] = useState(true);
   const [error, setError] = useState();
+  const [realdata, setRealdata] = useState([]);
 
   useEffect(() => {
     if (!userid) {
@@ -32,6 +33,7 @@ export default function useGetData(userid) {
         console.log(newArray);
         setNotes(newArray);
         setLoading(false);
+        //setRealdata(data.filter((note) => note.isLocked === true));
       },
 
       (err) => {

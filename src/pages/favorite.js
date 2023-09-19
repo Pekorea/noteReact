@@ -1,15 +1,12 @@
 import "../designs/homemindev.css";
 import "../designs/home.css";
 import { Toaster, toast } from "react-hot-toast";
-import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import AuthCheck from "../components/AuthComp";
-import { useQuery } from "@tanstack/react-query";
 import { updateNote, deleteNote, useGetFave } from "../lib/helper";
 import { BsFillBookmarkHeartFill } from "react-icons/bs";
 import { AiFillDelete, AiFillLock } from "react-icons/ai";
-
 import Loading from "./loading";
 
 export default function Favourites() {
@@ -38,7 +35,6 @@ export default function Favourites() {
               <hr
                 style={{ marginBottom: "20px", border: "2px dashed white" }}
               ></hr>
-              <div className="notes"></div>
               {!data.length ? (
                 <div className="no_notes">
                   <h1>No favorite notes📒🖋</h1>
