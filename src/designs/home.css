@@ -8,10 +8,11 @@
         }
         button{
             font-family: 'Montserrat';
+            transition: .3s;
             
         }
         button:hover{
-            filter: brightness(0%);
+            filter: brightness(70%);
         }
         :root{
             --bcolor: linear-gradient(to bottom, rgb(41, 18, 18) 0%, #63311b 50%, rgb(41, 18, 18) 100%);
@@ -98,6 +99,12 @@
             gap: 15px;
 
         }
+        .yname{
+            position: absolute;
+            font-size: 18px;
+            left:15.3rem;
+            top:0.3rem;
+        }
 
         .searchIcon {
             height: 30px;
@@ -160,6 +167,13 @@
             position: relative;
             overflow: auto;
             overflow-x: hidden;
+            font-family: 'Orbitron';
+        }
+        .anotesh{
+            display: flex;
+            font-size: 25px;
+            justify-content: center;
+
         }
         .anotes::-webkit-scrollbar {
             width: 10px;
@@ -243,12 +257,25 @@
             width: 100%;
             padding: 10px;
         }
+        .no_notes{
+            background-color: black;
+            height: 100%;
+            width: 100%;
+            align-items:center;
+            display: flex;
+            font-size: larger;
+            justify-content: center;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            
+       
+    }
 
         .notes {
-            width:100%;
+            width:90%;
             padding-left:4px;
             padding-right:4px;
-            margin-bottom: 5px;
+            margin-bottom: 10px;
             position: relative;
             font-family: 'REM';
             border-radius: 15px;
@@ -350,7 +377,7 @@
             top: 3px;
             text-transform: uppercase;
             padding-left: 10px;
-            font-size: 25px;
+            font-size: 23px;
 
         }
 
@@ -377,6 +404,7 @@
           .titlebox {
               font-size: large;
               text-align: center;
+              color:white;
           }
         
           .notesbtn_div {
@@ -385,12 +413,15 @@
               margin-top: 10px;
         
           }
-        
+        .cnhr{
+            margin-bottom: 20px;
+            border: 2px dashed white;
+        }
           .Savebtn {
               font-family: 'REM';
               font-size: large;
               color: white;
-              background-color: green;
+              background-color: rgb(19, 18, 18);
               padding: 5px;
               width: 100px;
               height: 40px;

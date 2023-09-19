@@ -61,6 +61,29 @@ export async function getLock(userId) {
     throw new Error(e);
   }
 }
+export async function getName(userId) {
+  if (!userId) return null; // Return null for no user ID
+  try {
+    const collectionRef = collection(db, "users");
+    const querySnapshot = await getDocs(
+      query(collectionRef, where("userid", "==", userId))
+    );
+
+    let userName = null;
+
+    querySnapshot.forEach((doc) => {
+      // Assuming there's a "name" field in the user's document
+      const userData = doc.data();
+
+      userName = userData.name; // Set userName if the user is found
+    });
+
+    return userName; // Return the user's name (or null if not found)
+  } catch (e) {
+    console.error("Error getting name: ", e);
+    throw new Error(e);
+  }
+}
 
 // export async function getFave(userId) {
 //   if (!userId) return [];

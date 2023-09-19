@@ -58,6 +58,7 @@ export default function AuthProvided() {
 
   return {
     userId: user,
+    // aname: name,
     signIn,
     siginUp,
     signOutF,

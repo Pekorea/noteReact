@@ -9,13 +9,26 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import { GrAdd } from "react-icons/gr";
 import { useLocation } from "react-router-dom";
+import { getName } from "../lib/helper";
+
 const Navbar = () => {
   const [searchT, setSearchT] = useState(false);
   const [onSearch, setOnSearch] = useState("");
   const [toggle, setToggle] = useState(false);
-  const { signOutF } = AuthProvided();
+  const { signOutF, userId } = AuthProvided();
   const nav = useNavigate();
+  const [yourname, setYourname] = useState("");
+
   const { pathname } = useLocation();
+  getName(userId)
+    .then((userName) => {
+      console.log(userName); // Access userName when the promise resolves
+      setYourname(userName);
+    })
+    .catch((error) => {
+      console.error("Error fetching name:", error);
+    });
+
   const searching = (event) => {
     setOnSearch(event.target.value);
   };
@@ -50,6 +63,7 @@ const Navbar = () => {
                 THE NOTEBOOK
               </h1>
             </Link>
+            <p className="yname">-{yourname}</p>
           </header>
           {pathname !== "/noteform" &&
             pathname !== "/updateform" &&

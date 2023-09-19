@@ -59,8 +59,8 @@ export default function Favourites() {
                           })
                         }
                         style={{
-                          background: item.isLocked ? "purple" : "",
-                          color: item.isLocked ? "white" : "",
+                          background: item.isLocked ? "burlywood" : "",
+                          color: item.isLocked ? "black" : "",
                         }}
                       >
                         <AiFillLock />
@@ -73,8 +73,8 @@ export default function Favourites() {
                           })
                         }
                         style={{
-                          background: item.isFavorited ? "green" : "",
-                          color: "white",
+                          background: item.isFavorited ? "yellow" : "",
+                          color: "black",
                         }}
                       >
                         <BsFillBookmarkHeartFill />

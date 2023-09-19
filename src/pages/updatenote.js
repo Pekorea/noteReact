@@ -83,7 +83,7 @@ const Updateform = () => {
       <div className="noteform">
         <form onSubmit={updatenotes} className="notesform">
           <h1>UPDATE NOTE</h1>
-          <hr></hr>
+          <hr className="cnhr"></hr>
           <input
             minLength={3}
             type="text"

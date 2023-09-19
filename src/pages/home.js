@@ -57,19 +57,8 @@ function Home() {
         <div className="mainNc">
           <div className="notescont">
             <div className="anotes">
-              <h1
-                style={{
-                  display: "flex",
-                  fontSize: "larger",
-                  fontSize: "22px",
-                  justifyContent: "center",
-                }}
-              >
-                NOTES
-              </h1>
-              <hr
-                style={{ marginBottom: "20px", border: "2px dashed white" }}
-              ></hr>
+              <h1 className="anotesh">NOTES</h1>
+              <hr className="cnhr"></hr>
               <div className="notelist">
                 {!data.length ? (
                   <div className="no_notes">

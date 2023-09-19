@@ -60,7 +60,7 @@ const Notesform = () => {
       <div className="noteform">
         <form onSubmit={savenotes} className="notesform">
           <h1>CREATE NOTE</h1>
-          <hr></hr>
+          <hr className="cnhr"></hr>
 
           <input
             minLength={3}
