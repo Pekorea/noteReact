@@ -277,14 +277,13 @@
         flex-direction: column;
         width: 60%;
         overflow:hidden;
-        
     }
     .btn_div{
         padding-left: 5px;
         padding-right: 5px;
         height:88%;
-       width:40%;
-       gap:10px;
+        width:40%;
+        gap:10px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -322,7 +321,6 @@
         top:-3px;
         padding-left: 10px;
         font-size: 18px;
-        
         
     }
     .notes p{

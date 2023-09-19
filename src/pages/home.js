@@ -99,7 +99,7 @@ function Home() {
                         >
                           <AiFillLock
                             style={{
-                              backgroundColor: item.isLocked ? 'red' : '',
+                              color: item.isLocked ? 'red' : '',
                             }}
                           />
                         </button>
@@ -113,7 +113,7 @@ function Home() {
                         >
                           <BsFillBookmarkHeartFill
                             style={{
-                              backgroundColor: item.isFavorited ? 'red' : '',
+                  color: item.isFavorited ? 'red' : '',
                             }}
                           />
                         </button>
