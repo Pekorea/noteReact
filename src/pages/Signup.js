@@ -5,6 +5,10 @@ import Header from "../components/header";
 import AuthProvided from "../lib/auth";
 import { useNavigate } from "react-router";
 import { error } from "../lib/error";
+import { BsBook } from "react-icons/bs";
+import "../App.css";
+import "../Mindev.css";
+
 export default function SignUp() {
   const [name, setName] = useState("");
   const [pass, setPassword] = useState("");
@@ -20,18 +24,22 @@ export default function SignUp() {
   }, [nav, userId]);
   const handlesub = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    try {
-      await siginUp(email, pass, name);
-      toast("Successfully Registered", { duration: 3000, icon: "✔" });
-      setLoading(false);
-      setTimeout(() => {
-        nav("/home");
-      }, 1000);
-    } catch (e) {
-      setLoading(false);
-      const errorMessage = error(e.code);
-      toast(errorMessage, { duration: 2000, icon: "❌❌" });
+    if (name.length > 10) {
+      toast("Your Name is too long", { duration: 2000, icon: "❗❌" });
+    } else {
+      setLoading(true);
+      try {
+        await siginUp(email, pass, name);
+        toast("Successfully Registered", { duration: 3000, icon: "✔" });
+        setLoading(false);
+        setTimeout(() => {
+          nav("/home");
+        }, 1000);
+      } catch (e) {
+        setLoading(false);
+        const errorMessage = error(e.code);
+        toast(errorMessage, { duration: 2000, icon: "❌❌" });
+      }
     }
   };
 
@@ -57,6 +65,7 @@ export default function SignUp() {
                     className="nameInput"
                     onChange={(e) => setName(e.target.value)}
                     value={name}
+                    maxLength={10}
                     required
                   ></input>
                   <label>Name</label>
@@ -116,8 +125,11 @@ export default function SignUp() {
 
           <div className="imgcont">
             <h2 className="TN">THE NOTEBOOK</h2>
+            <BsBook
+              style={{ width: "2rem", height: "3rem", paddingLeft: "6px" }}
+            />
           </div>
-        </div>{" "}
+        </div>
       </form>
     </div>
   );

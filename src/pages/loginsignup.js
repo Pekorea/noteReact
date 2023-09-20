@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import Header from "../components/header";
 import { Auth } from "firebase/auth";
+import "../App.css";
+import "../Mindev.css";
+import { BsBook } from "react-icons/bs";
 
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import AuthProvided from "../lib/auth";
@@ -82,7 +85,7 @@ export default function Validation() {
   };
 
   return (
-    <div className="cont">
+    <div className="cont" style={{ overflow: "hidden" }}>
       <Header />
       <form onSubmit={handlesub}>
         <div className="mainContainer">
@@ -177,6 +180,9 @@ export default function Validation() {
 
           <div className="imgcont">
             <h2 className="TN">THE NOTEBOOK</h2>
+            <BsBook
+              style={{ width: "2rem", height: "3rem", paddingLeft: "6px" }}
+            />
           </div>
         </div>
       </form>

@@ -1,5 +1,3 @@
-import "./App.css";
-import "./Mindev.css";
 import Locked from "./pages/lockednotes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Signup from "./pages/Signup";

@@ -25,11 +25,11 @@
             background-color: black;
             border-bottom-left-radius: 10px;
             border-bottom-right-radius: 10px;
-            height: 100dvh;
+            height: 60dvh;
             display: flex;
             flex-direction: column;
             color: white;
-            width: 12rem;
+            width: 18rem;
             font-size: 15px;
             align-items: center;
             justify-content: flex-start;
@@ -44,19 +44,15 @@
             width: 30px;
             height: 26px;
             border-radius: 10px;
-
         }
 
         .sb-items {
-
             justify-content: center;
             list-style: none;
             display: flex;
             flex-direction: column;
             gap: 10px;
-
             width: 100%;
-
         }
 
         .sb-items li {
@@ -81,6 +77,11 @@
         .containerr {
             position: relative;
         }
+        .navoacont{
+            position: sticky;
+            top:0px;
+            z-index: 1000;
+        }
 
         .mainNc {
 
@@ -99,6 +100,14 @@
             gap: 15px;
 
         }
+        .bookicon{
+        position: absolute;
+        left: 15rem;
+        top: 1.4rem;
+        width: 2rem;
+        height: 1.6rem;
+        padding-left: 6px;
+    }
         .yname{
             position: absolute;
             font-size: 18px;
@@ -165,8 +174,7 @@
             width: 85%;
             padding: 15px;
             position: relative;
-            overflow: auto;
-            overflow-x: hidden;
+            overflow: hidden;
             font-family: 'Orbitron';
         }
         .anotesh{
@@ -175,21 +183,7 @@
             justify-content: center;
 
         }
-        .anotes::-webkit-scrollbar {
-            width: 10px;
-            cursor: pointer;
-            transition: .3s;
-
-        }
-       
-        .anotes::-webkit-scrollbar-track {
-            background-color: white;
-        }
-       
-        .anotes::-webkit-scrollbar-thumb {
-            background: rgb(179, 59, 59);
-       
-        }
+        
 
         .addbutton {
             position: relative;
@@ -236,6 +230,7 @@
             transition: .4s ease-out;
 
         }
+        
 
         .navcont {
             display: flex;
@@ -459,69 +454,124 @@
          }
         
         .textbox {
-              outline: none;
-              background-color: transparent;
-              width: 100%;
-              max-width: 100%;
-              height: 100%;
-              border: none;
-              color: white;
+            outline: none;
+            background-color: transparent;
+            width: 100%;
+            max-width: 100%;
+            height: 100%;
+            border: none;
+            color: white;
+            resize: none;
         }
 
-        .textbox_div {
-             word-wrap: break-word;
-             padding: 5px;
-             border: 2px solid white;
-             height: 60%;
-             width: 80%;
-             margin-top: 10px;
-             background-color: rgb(58, 47, 47);
-              
-         }
-              
-        .textbox::-webkit-scrollbar {
-            width: 12px;
+       .textbox_div {
+            word-wrap: break-word;
+            padding: 5px;
+            border: 2px solid white;
+            height: 60%;
+            width: 80%;
+            margin-top: 10px;
+            background-color: rgb(58, 47, 47);
+             
         }
-              
-        .textbox::-webkit-scrollbar-track {
-            background-color: white;
-        }
-              
-        .textbox::-webkit-scrollbar-thumb {
-            background: rgb(179, 59, 59);
-              
-        }
+             
+       .textbox::-webkit-scrollbar {
+           width: 12px;
+       }
+             
+       .textbox::-webkit-scrollbar-track {
+           background-color: white;
+       }
+             
+       .textbox::-webkit-scrollbar-thumb {
+           background: rgb(179, 59, 59);   
+       }
         /*PROFILE*/
-        .profileFile{
-            
-            border:none;
-            width:30%;
-            height:25px;
-            cursor: pointer;
-            display: flex;
-            justify-content: center;
-            
-         }
-         .profimgborder{
-            cursor: pointer;
-            padding: 0.5rem;
-            border:2px solid white;
-            border-radius: 70px;
-            width: 11rem;
-            height: 10rem;
-            margin-bottom: 13px;
-         }
-         .profileimg_div{
-            margin-top: 70px;
+    .profileFile{    
+        border:none;
+        width:30%;
+        height:25px;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+    }
+    .profimgborder{
+       cursor: pointer;
+       border:1px solid white;
+       border-radius: 10px;
+       width: 13rem;
+       height: 12rem;
+       margin-bottom: 13px;
+    }
+    .profileimg_div{
+       color:white;
+       margin-top: 50px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+    }
+    .aprofileimg{
+       width:13rem;
+       height:12rem;
+       object-fit: fill;
+       border-radius: 10px;
+    }
+
+    .profilediv{
+       overflow: auto;
+       overflow-x: hidden;
+       background-color: rgba(105, 105, 105, 0.267);
+       height:90%;
+       position: relative;
+    }
+    .profilediv input[type='file']{
+       position: absolute;
+       right:100px;
+       width:160px;
+       top:230px;
+       opacity:0;
+       cursor: pointer;
+    }
+    .toggle2{
+       display: inline-block;
+       color:black;
+       background-color: white;
+       border:2px solid white;
+       border-radius:5px;
+    }
+    .toggle2:hover{
+       background-color: black;
+       color:white;
+    }
+        .personalinfo {
+            overflow: auto;
             display: flex;
             flex-direction: column;
             align-items: center;
-         }
-         .aprofileimg{
-            width:11rem;
-            height:10rem;
-            border-radius: 70px;
-         }
+            margin-top: 3rem;
+            gap: 1.2rem;
+        }
+    
+        .persdiv {
+    
+            position: relative;
+            border: 2px solid burlywood;
+            border-bottom: none;
+            width: 30%;
+            overflow: auto;
+            font-size: 10px;
+            overflow: hidden;
+    
+        }
+    
+        .persdiv input {
+            width: 99%;
+            background-color: white;
+            text-align: center;
+            color: black;
+            font-size: 1rem;
+    
+        }
 
          /*LOADING*/
     .loader-container {

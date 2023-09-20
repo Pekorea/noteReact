@@ -24,6 +24,7 @@
       display: flex;
       justify-content: center;
     }
+    
   .nothead_div{
     width:100%;
     background-color: black;
@@ -108,7 +109,7 @@
        font-size: large;
        font-weight: bold;
        cursor: pointer;
-       transition: .7s ease-in;
+       transition: .5s ease-in;
        background-color: black;
        color: #63311b;
        font-family: 'Montserrat';
@@ -176,7 +177,7 @@
        outline: none;
        border-bottom: 2px solid burlywood;
        font-size: medium;
-       transition: .5s ease-in;
+       transition: .2s ease-in;
    }
 
    .inputs {
@@ -198,6 +199,7 @@
     input:valid~label {
       top: -15px;
       transition: .5s ease;
+      color:rgb(141, 138, 138);
       
     }
     input:invalid~label{
