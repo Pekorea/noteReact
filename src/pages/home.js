@@ -9,11 +9,13 @@ import Loading from "./loading";
 import { useContext, useState } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import AuthCheck from "../components/AuthComp";
-import { GetData, deleteNote, updateNote } from "../lib/helper";
+import { getName, deleteNote, updateNote } from "../lib/helper";
 import useGetData from "../lib/hooks/getData";
 import { AuthContext } from "../lib/context";
+//import AuthProvided from "../lib/auth";
 
 function Home() {
+  
   /* const current_date = new Date();
   const current_day = current_date.getDate();
   const current_month = current_date.getMonth() + 1;
@@ -22,11 +24,20 @@ function Home() {
     current_date.getHours() + ":" + current_date.getMinutes();
   const date = `${current_day}/${current_month}/${current_year}-${current_time}`;*/
   //console.log(`${current_day}/${current_month}/${current_year}-${current_time}`);
+  
   const [toggle, setToggle] = useState("");
   const { userId } = useContext(AuthContext);
   const [display, setDisplay] = useState(true);
   const { data, isLoading } = useGetData(userId);
-
+  const [yourname, setYourname] = useState("");
+  getName(userId)
+    .then((userName) => {
+      console.log(userName); // Access userName when the promise resolves
+      setYourname(userName);
+    })
+    .catch((error) => {
+      console.error("Error fetching name:", error);
+    });
   if (isLoading) return <Loading />;
 
   /*
@@ -55,7 +66,7 @@ function Home() {
         <div className="mainNc">
           <div className="notescont">
             <div className="anotes">
-              <h1 className="anotesh">NOTES</h1>
+              <h1 className="anotesh">{`${yourname}'s NOTES`}</h1>
               <hr className="cnhr"></hr>
               <div className="notelist">
                 {!data.length ? (

@@ -62,14 +62,18 @@ export default function Profile() {
 
             </div>
             <div className="personalinfo">
-              <p>Personal Information</p>
-              <div className="namediv">
-                <label>Your Name:</label>
+              <h3>Personal Information</h3>
+              <div className="persdiv">
+                <label>Name:</label>
                 <input type="text"></input>
               </div>
-              <div className="emaildiv">
-                <label>Your Email:</label>
+              <div className="persdiv">
+                <label>Email:</label>
                 <input type="text"></input>
+              </div>
+              <div className="persdiv">
+                <label>Locked notes password</label>
+                <input defaultValue={123343} disabled type="password"></input>
               </div>
               
               

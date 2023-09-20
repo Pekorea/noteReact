@@ -20,7 +20,7 @@ const Navbar = () => {
   const [yourname, setYourname] = useState("");
 
   const { pathname } = useLocation();
-  getName(userId)
+  /*getName(userId)
     .then((userName) => {
       console.log(userName); // Access userName when the promise resolves
       setYourname(userName);
@@ -28,7 +28,7 @@ const Navbar = () => {
     .catch((error) => {
       console.error("Error fetching name:", error);
     });
-
+*/
   const searching = (event) => {
     setOnSearch(event.target.value);
   };
@@ -63,7 +63,7 @@ const Navbar = () => {
                 THE NOTEBOOK
               </h1>
             </Link>
-            <p className="yname">-{yourname}</p>
+            
           </header>
           {pathname !== "/noteform" &&
             pathname !== "/updateform" &&

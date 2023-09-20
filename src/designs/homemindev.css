@@ -36,7 +36,7 @@
         display: flex;
         flex-direction: column;
         color:white;
-        width: 12rem;
+        width: 15rem;
         font-size: 15px;
         align-items: center;
         justify-content: flex-start;
@@ -102,6 +102,7 @@
         font-size: 18px;
         left:15.3rem;
         top:0.3rem;
+        display:none;
         }
     .searchIcon{
         height: 30px;
@@ -351,6 +352,11 @@
         text-overflow: ellipsis;*/
         display: none;
     }
+    .cnhr{
+        margin-bottom: 20px;
+        border: 2px dashed white;
+    }
+    
         
     .noteform{
         display: flex;
@@ -364,6 +370,7 @@
     .titlebox{
         font-size: large;
         text-align: center;
+        color:white;
     }
     .notesbtn_div{
         display: flex;
@@ -371,14 +378,14 @@
         margin-top: 10px;
         
     }
-    .Savebtn{
+    .Savebtn {
         font-family: 'REM';
         font-size: large;
-        color:white;
-        background-color: green;
-        padding:5px;
-        width:100px;
-        height:40px;
+        color: white;
+        background-color: rgb(19, 18, 18);
+        padding: 5px;
+        width: 100px;
+        height: 40px;
         cursor: pointer;
         transition: .4s;
         border-radius: 10px;
@@ -452,8 +459,8 @@
     cursor: pointer;
     border:1px solid white;
     border-radius: 10px;
-    width: 11rem;
-    height: 10rem;
+    width: 13rem;
+    height: 12rem;
     margin-bottom: 13px;
  }
  .profileimg_div{
@@ -464,15 +471,13 @@
     align-items: center;
  }
  .aprofileimg{
-    width:11rem;
-    height:10rem;
+    width:13rem;
+    height:12rem;
     object-fit: fill;
     border-radius: 10px;
  }
 
  .profilediv{
-    background-color: green;
-    
     overflow: auto;
     overflow-x: hidden;
     background-color: rgba(105, 105, 105, 0.267);
@@ -488,8 +493,7 @@
     cursor: pointer;
     
  }
- .toggle2{
-    
+ .toggle2{  
     display: inline-block;
     color:black;
     background-color: white;
@@ -500,6 +504,32 @@
     background-color: black;
     color:white;
  }
+ .personalinfo{
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+    gap:1.2rem;
+ }
+ .persdiv{
+    
+    position: relative;
+    border:2px solid burlywood;
+    border-bottom:none;
+    width:75%;
+    overflow: auto;
+    font-size: 10px;
+
+ }
+ .persdiv input{
+    width:99%;
+    background-color: white;
+    text-align: center;
+    color:black;
+    font-size: 1rem;
+ }
+ 
 
     /*LOADING*/
     .loader-container {
