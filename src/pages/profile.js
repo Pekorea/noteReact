@@ -1,5 +1,6 @@
 import "../designs/homemindev.css";
 import "../designs/home.css";
+import { CgProfile } from "react-icons/cg";
 import { Toaster, toast } from "react-hot-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -47,10 +48,9 @@ export default function Profile() {
               }}
             >
               PROFILE
+              <CgProfile className="profileIcon" />
             </h1>
-            <hr
-              style={{ marginBottom: "20px", border: "2px dashed white" }}
-            ></hr>
+            <hr className="cnhr"></hr>
             <div className="profilediv">
               <div className="profileimg_div">
                 <div className="profimgborder">

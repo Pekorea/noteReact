@@ -183,6 +183,10 @@
             justify-content: center;
 
         }
+        .profileIcon{
+            width:2.2rem;
+            height:1.8rem;
+        }
         
 
         .addbutton {

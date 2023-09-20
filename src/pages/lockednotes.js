@@ -57,69 +57,69 @@ function Locked() {
                   justifyContent: "center",
                 }}
               >
-                LOCKED NOTES
+                LOCKED NOTES <AiFillLock className="profileIcon" />
               </h1>
-              <hr
-                style={{ marginBottom: "20px", border: "2px dashed white" }}
-              ></hr>
-              {!data.length ? (
-                <div className="no_notes">
-                  <h1>No locked notes📒🖋</h1>
-                </div>
-              ) : (
-                data.map((item) => (
-                  <div className="notes" key={item.id}>
-                    <Link
-                      className="acN"
-                      to={`/${userId}/updateform/${item.id}`}
-                    >
-                      <h3>{item.title}</h3>
-                      <hr className="hrN"></hr>
-                      <p>{item.body}</p>
-                    </Link>
-                    <div className="btn_div">
-                      <button
-                        className="btn1"
-                        onClick={(e) =>
-                          updateNote(item.id, userId, {
-                            isLocked: !item.isLocked,
-                          })
-                        }
-                        style={{
-                          background: item.isLocked ? "burlywood" : "",
-                          color: item.isLocked ? "black" : "",
-                        }}
-                      >
-                        <AiFillLock />
-                      </button>
-                      <button
-                        className="btn2"
-                        onClick={(e) =>
-                          updateNote(item.id, userId, {
-                            isFavorited: !item.isFavorited,
-                          })
-                        }
-                        style={{
-                          background: item.isFavorited ? "yellow" : "",
-                          color: item.isFavorited ? "black" : "",
-                        }}
-                      >
-                        <BsFillBookmarkHeartFill />
-                      </button>
-                      <button
-                        onClick={async (e) => {
-                          await deleteNote(item.id, userId);
-                        }}
-                        className="btn3"
-                        type="button"
-                      >
-                        <AiFillDelete />
-                        Delete
-                      </button>
-                    </div>
+              <hr className="cnhr"></hr>
+              <div className="notelist">
+                {!data.length ? (
+                  <div className="no_notes">
+                    <h1>No locked notes📒🖋</h1>
                   </div>
-                ))
-              )}
+                ) : (
+                  data.map((item) => (
+                    <div className="notes" key={item.id}>
+                      <Link
+                        className="acN"
+                        to={`/${userId}/updateform/${item.id}`}
+                      >
+                        <h3>{item.title}</h3>
+                        <hr className="hrN"></hr>
+                        <p>{item.body}</p>
+                      </Link>
+                      <div className="btn_div">
+                        <button
+                          className="btn1"
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isLocked: !item.isLocked,
+                            })
+                          }
+                          style={{
+                            background: item.isLocked ? "burlywood" : "",
+                            color: item.isLocked ? "black" : "",
+                          }}
+                        >
+                          <AiFillLock />
+                        </button>
+                        <button
+                          className="btn2"
+                          onClick={(e) =>
+                            updateNote(item.id, userId, {
+                              isFavorited: !item.isFavorited,
+                            })
+                          }
+                          style={{
+                            background: item.isFavorited ? "yellow" : "",
+                            color: item.isFavorited ? "black" : "",
+                          }}
+                        >
+                          <BsFillBookmarkHeartFill />
+                        </button>
+                        <button
+                          onClick={async (e) => {
+                            await deleteNote(item.id, userId);
+                          }}
+                          className="btn3"
+                          type="button"
+                        >
+                          <AiFillDelete />
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  ))
+                )}
+              </div>
             </div>
           </div>
         </div>
