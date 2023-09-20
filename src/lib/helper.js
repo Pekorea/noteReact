@@ -61,6 +61,29 @@ export async function getLock(userId) {
     throw new Error(e);
   }
 }
+
+export async function getPc(userId) {
+  if (!userId) return null; // Return null for no user ID
+  try {
+    const collectionRef = collection(db, "users");
+    const querySnapshot = await getDocs(
+      query(collectionRef, where("userid", "==", userId))
+    );
+
+    let userPc = null;
+
+    querySnapshot.forEach((doc) => {
+      const userData = doc.data();
+      //console.log(userData);
+      userPc = userData.LPasscode;
+    });
+
+    return userPc;
+  } catch (e) {
+    console.error("Error getting name: ", e);
+    throw new Error(e);
+  }
+}
 export async function getName(userId) {
   if (!userId) return null; // Return null for no user ID
   try {
@@ -74,7 +97,7 @@ export async function getName(userId) {
     querySnapshot.forEach((doc) => {
       // Assuming there's a "name" field in the user's document
       const userData = doc.data();
-
+      //console.log(userData);
       userName = userData.name; // Set userName if the user is found
     });
 
@@ -82,6 +105,22 @@ export async function getName(userId) {
   } catch (e) {
     console.error("Error getting name: ", e);
     throw new Error(e);
+  }
+}
+export async function updatePasscode(LPasscode, userId) {
+  try {
+    // Get a reference to the specific user document based on userId
+    const docRef = doc(db, "users", userId);
+
+    // Update the document with the new passcode
+    await updateDoc(docRef, {
+      LPasscode,
+    });
+
+    console.log("Passcode updated successfully");
+  } catch (e) {
+    console.error("Error updating passcode: ", e);
+    throw e; // Re-throw the error for handling in the calling code
   }
 }
 

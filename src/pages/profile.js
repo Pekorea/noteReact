@@ -7,12 +7,16 @@ import { Link } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import AuthCheck from "../components/AuthComp";
 import { useQuery } from "@tanstack/react-query";
-import { GetData, getName } from "../lib/helper";
+import { getPc, getName, updatePasscode } from "../lib/helper";
 
 export default function Profile() {
   const [yourname, setYourname] = useState("");
+  const [yourpc, setYourpc] = useState("");
+  const [oldpc, setOldpc] = useState("");
   const [toggle2, setToggle2] = useState(false);
+  const [toggle3, setToggle3] = useState(true);
   const { userId } = AuthProvided();
+
   getName(userId)
     .then((userName) => {
       setYourname(userName);
@@ -20,7 +24,16 @@ export default function Profile() {
     .catch((error) => {
       console.error("Error fetching name:", error);
     });
+  getPc(userId)
+    .then((userpc) => {
+      setYourpc(userpc);
+    })
+    .catch((error) => {
+      console.error("Error fetching name:", error);
+    });
+
   const [fileInput, setFileInput] = useState();
+  const [newpc, setNewpc] = useState("");
   function handleChange(e) {
     console.log(e.target.files);
     try {
@@ -31,6 +44,27 @@ export default function Profile() {
       toast(e, { duration: 2000, icon: "🎈🎈" });
     }
   }
+
+  const updatepc = () => {
+    if (newpc.length === 0) {
+      toast("Enter the field!");
+    } else if (yourpc !== oldpc) {
+      toast("Wrong Passcode!", { duration: 1200, icon: "✔" });
+    } else {
+      try {
+        updatePasscode(newpc, userId);
+        toast("PassCode Updated!", { duration: 1200, icon: "✔" });
+        setNewpc("");
+        setOldpc("");
+      } catch (e) {
+        console.error("An error occurred: ", e);
+        toast("Error updating PassCode", { duration: 2000, icon: "❌" });
+      }
+    }
+  };
+  const dispc = () => {
+    setToggle3(!toggle3);
+  };
 
   return (
     <div className="cont">
@@ -76,12 +110,35 @@ export default function Profile() {
                 <h3>Personal Information</h3>
                 <div className="persdiv">
                   <label>Name:</label>
-                  <input type="text" defaultValue={yourname}></input>
+                  <input type="text" disabled defaultValue={yourname}></input>
                 </div>
                 <div className="persdiv">
-                  <label>Locked notes password</label>
-                  <input defaultValue={123343} disabled type="password"></input>
+                  <label>Old LPasscode</label>
+                  <input
+                    value={oldpc}
+                    onChange={(E) => {
+                      setOldpc(E.target.value);
+                    }}
+                    type={toggle3 ? "password" : "text"}
+                  ></input>
                 </div>
+
+                <div className="persdiv">
+                  <label>New LPasscode</label>
+                  <input
+                    type={toggle3 ? "password" : "text"}
+                    value={newpc}
+                    onChange={(e) => {
+                      setNewpc(e.target.value);
+                    }}
+                  ></input>
+                </div>
+                <button onClick={updatepc} type="button">
+                  Update
+                </button>
+                <button onClick={dispc} type="button">
+                  show
+                </button>
               </div>
             </div>
           </div>
