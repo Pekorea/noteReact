@@ -508,6 +508,9 @@
            background: rgb(179, 59, 59);   
        }
         /*PROFILE*/
+    .passcodediv{
+        background-color: yellow;
+    }
     .profileFile{    
         border:none;
         width:30%;

@@ -21,7 +21,7 @@ export async function addUser(user, name) {
     const newUser = await setDoc(doc(db, "users", user), {
       userid: user,
       name: name,
-      LPasscode:""
+      LPasscode: "",
     });
     return newUser;
   } catch (e) {
