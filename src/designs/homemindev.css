@@ -533,31 +533,73 @@
     color:white;
  }
  .personalinfo{
-    overflow: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
     gap:1.2rem;
  }
- .persdiv{
-    
-    position: relative;
-    border:2px solid burlywood;
-    border-bottom:none;
-    width:75%;
-    overflow: auto;
-    font-size: 10px;
-    overflow: hidden;
+ .persdivs {
+     position: relative;
+     border: 2px solid burlywood;
+     border-bottom: none;
+     width: 100%;
+     overflow: auto;
+     font-size: 10px;
+     overflow: hidden;
+ }
+
+ .persdivs input {
+     width: 100%;
+     background-color: white;
+     text-align: center;
+     color: black;
+     font-size: 1rem;
+ }
+
+ .persdiv {
+     position: relative;
+     border: 2px solid burlywood;
+     border-bottom: none;
+     width: 50%;
+     overflow: auto;
+     font-size: 10px;
+     overflow: hidden;
+ }
+
+ .persdiv input {
+     width: 99%;
+     background-color: white;
+     text-align: center;
+     color: black;
+     font-size: 1rem;
 
  }
- .persdiv input{
-    width:99%;
-    background-color: white;
-    text-align: center;
-    color:black;
-    font-size: 1.3rem;
-    
+
+ .btns_div {
+     display: flex;
+     justify-content: space-around;
+ }
+
+ .btns_div button {
+     cursor: pointer;
+     font-size: medium;
+     width: 40%;
+     height: 37px;
+     padding: 2px;
+ }
+
+ .CPC {
+     cursor: pointer;
+     font-size: medium;
+     width: 100%;
+     height: 37px;
+     padding: 2px;
+ }
+
+ .CPC_div {
+     position: relative;
+     top: 5rem;
  }
  
 

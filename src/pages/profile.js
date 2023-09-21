@@ -3,10 +3,9 @@ import "../designs/home.css";
 import { CgProfile } from "react-icons/cg";
 import { Toaster, toast } from "react-hot-toast";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import AuthProvided from "../lib/auth";
-import AuthCheck from "../components/AuthComp";
-import { useQuery } from "@tanstack/react-query";
+//import AuthCheck from "../components/AuthComp";
+//import { useQuery } from "@tanstack/react-query";
 import { getPc, getName, updatePasscode } from "../lib/helper";
 
 export default function Profile() {
@@ -36,7 +35,6 @@ export default function Profile() {
     .catch((error) => {
       console.error("Error fetching Passcode:", error);
     });
-  console.log(togglepc);
 
   const [fileInput, setFileInput] = useState();
   const [newpc, setNewpc] = useState("");
@@ -55,7 +53,7 @@ export default function Profile() {
     if (newpc.length === 0) {
       toast("Enter the field!");
     } else if (yourpc !== oldpc) {
-      toast("Wrong Passcode!", { duration: 1200, icon: "✔" });
+      toast("Wrong Passcode!", { duration: 1200, icon: "🚩🚩" });
     } else {
       try {
         updatePasscode(newpc, userId);
@@ -122,7 +120,7 @@ export default function Profile() {
 
                 {togglepc ? (
                   <div className="passcodediv">
-                    <div className="persdiv">
+                    <div className="persdivs">
                       <label>Old LPasscode</label>
                       <input
                         value={oldpc}
@@ -133,7 +131,7 @@ export default function Profile() {
                       ></input>
                     </div>
 
-                    <div className="persdiv">
+                    <div className="persdivs">
                       <label>New LPasscode</label>
                       <input
                         type={toggle3 ? "password" : "text"}
@@ -143,16 +141,18 @@ export default function Profile() {
                         }}
                       ></input>
                     </div>
-                    <button onClick={updatepc} type="button">
-                      Update
-                    </button>
-                    <button onClick={dispc} type="button">
-                      show
-                    </button>
+                    <div className="btns_div">
+                      <button onClick={updatepc} type="button">
+                        UPDATE
+                      </button>
+                      <button onClick={dispc} type="button">
+                        {toggle3 ? "SHOW" : "HIDE"}
+                      </button>
+                    </div>
                   </div>
                 ) : (
-                  <div>
-                    <button>Create Passcode for Notes</button>
+                  <div className="CPC_div">
+                    <button className="CPC">Create Passcode for Notes</button>
                   </div>
                 )}
               </div>
