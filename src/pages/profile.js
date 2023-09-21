@@ -50,7 +50,7 @@ export default function Profile() {
   }
 
   const updatepc = () => {
-    if (newpc.length === 0) {
+    if (newpc.length === 0 || oldpc.length === 0) {
       toast("Enter the field!");
     } else if (yourpc !== oldpc) {
       toast("Wrong Passcode!", { duration: 1200, icon: "🚩🚩" });
@@ -120,6 +120,7 @@ export default function Profile() {
 
                 {togglepc ? (
                   <div className="passcodediv">
+                    <p>Change Notes Passcode</p>
                     <div className="persdivs">
                       <label>Old LPasscode</label>
                       <input

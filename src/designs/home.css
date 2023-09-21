@@ -524,8 +524,8 @@
        cursor: pointer;
        border:1px solid white;
        border-radius: 10px;
-       width: 13rem;
-       height: 12rem;
+       width: 17rem;
+       height: 16rem;
        margin-bottom: 13px;
     }
     .persdivs{
@@ -591,13 +591,14 @@
        align-items: center;
     }
     .aprofileimg{
-       width:13rem;
-       height:12rem;
+       width:17rem;
+       height:16rem;
        object-fit: fill;
        border-radius: 10px;
     }
 
     .profilediv{
+        position: relative;
        overflow: auto;
        overflow-x: hidden;
        background-color: rgba(105, 105, 105, 0.267);
