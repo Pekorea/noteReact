@@ -21,6 +21,7 @@ export async function addUser(user, name) {
     const newUser = await setDoc(doc(db, "users", user), {
       userid: user,
       name: name,
+      LPasscode:""
     });
     return newUser;
   } catch (e) {
@@ -74,7 +75,7 @@ export async function getPc(userId) {
 
     querySnapshot.forEach((doc) => {
       const userData = doc.data();
-      //console.log(userData);
+      console.log(userData);
       userPc = userData.LPasscode;
     });
 

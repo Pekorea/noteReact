@@ -15,6 +15,7 @@ export default function Profile() {
   const [oldpc, setOldpc] = useState("");
   const [toggle2, setToggle2] = useState(false);
   const [toggle3, setToggle3] = useState(true);
+  const [togglepc, setTogglepc] = useState(true);
   const { userId } = AuthProvided();
 
   getName(userId)
@@ -27,10 +28,15 @@ export default function Profile() {
   getPc(userId)
     .then((userpc) => {
       setYourpc(userpc);
+      console.log(userpc)
+      if((userpc.length===0)||userpc==null){
+        setTogglepc(false)
+      }
     })
     .catch((error) => {
-      console.error("Error fetching name:", error);
+      console.error("Error fetching Passcode:", error);
     });
+    
 
   const [fileInput, setFileInput] = useState();
   const [newpc, setNewpc] = useState("");
@@ -106,39 +112,55 @@ export default function Profile() {
                   {fileInput == null ? `Add a` : `Change`} profile Picture
                 </label>
               </div>
+               
               <div className="personalinfo">
                 <h3>Personal Information</h3>
                 <div className="persdiv">
                   <label>Name:</label>
                   <input type="text" disabled defaultValue={yourname}></input>
                 </div>
-                <div className="persdiv">
-                  <label>Old LPasscode</label>
-                  <input
-                    value={oldpc}
-                    onChange={(E) => {
-                      setOldpc(E.target.value);
-                    }}
-                    type={toggle3 ? "password" : "text"}
-                  ></input>
-                </div>
+                
+                {togglepc?(<div>
+                  
+                  <div className="persdiv">
+                    <label>Old LPasscode</label>
+                    <input
+                      value={oldpc}
+                      onChange={(E) => {
+                        setOldpc(E.target.value);
+                      }}
+                      type={toggle3 ? "password" : "text"}
+                    ></input>
+                  </div>
+  
+                  <div className="persdiv">
+                    <label>New LPasscode</label>
+                    <input
+                      type={toggle3 ? "password" : "text"}
+                      value={newpc}
+                      onChange={(e) => {
+                        setNewpc(e.target.value);
+                      }}
+                    ></input>
+                  </div>
+                  <button onClick={updatepc} type="button">
+                    Update
+                  </button>
+                  <button onClick={dispc} type="button">
+                    show
+                  </button>
+                  </div>
+                  ):
+                (
+                <div>
+                  <button>Create Passcode for Notes</button>
+                </div>)
+                }
+                
 
-                <div className="persdiv">
-                  <label>New LPasscode</label>
-                  <input
-                    type={toggle3 ? "password" : "text"}
-                    value={newpc}
-                    onChange={(e) => {
-                      setNewpc(e.target.value);
-                    }}
-                  ></input>
-                </div>
-                <button onClick={updatepc} type="button">
-                  Update
-                </button>
-                <button onClick={dispc} type="button">
-                  show
-                </button>
+                
+                
+                
               </div>
             </div>
           </div>
