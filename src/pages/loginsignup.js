@@ -3,12 +3,12 @@ import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Toaster, toast } from "react-hot-toast";
 import Header from "../components/header";
-import { Auth } from "firebase/auth";
+//import { Auth } from "firebase/auth";
 import "../App.css";
 import "../Mindev.css";
 import { BsBook } from "react-icons/bs";
 
-import { createUserWithEmailAndPassword } from "firebase/auth";
+//import { createUserWithEmailAndPassword } from "firebase/auth";
 import AuthProvided from "../lib/auth";
 import { error } from "../lib/error";
 
@@ -42,7 +42,6 @@ export default function Validation() {
     setLoading(true);
     try {
       const userId = await signIn(email, pass);
-
       toast("Successfully logged in", { duration: 3000, icon: "✔" });
       setLoading(false);
       setTimeout(() => {

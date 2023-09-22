@@ -85,6 +85,50 @@ export async function getPc(userId) {
     throw new Error(e);
   }
 }
+
+export function useGetSearchRes(userid, title) {
+  const [data, setData] = useState([]);
+  const [isloading, setLoading] = useState(true);
+  const [error, setError] = useState();
+
+  useEffect(() => {
+    setLoading(true);
+    if (!userid) {
+      // Return early if userid is falsy
+      setLoading(false);
+      return;
+    }
+
+    const subColRef = query(
+      collection(db, "users", userid, "notes"),
+      where("title", "==", title)
+    );
+    console.log(title);
+    const unsub = onSnapshot(
+      subColRef,
+      (snap) => {
+        const newArray = [];
+        snap.forEach((doc) => newArray.push({ ...doc.data(), id: doc.id }));
+        setData(newArray);
+        setLoading(false);
+      },
+
+      (err) => {
+        setError(err);
+        setLoading(false);
+      }
+    );
+
+    return () => unsub();
+  }, [userid]);
+  console.log(data);
+  return {
+    data,
+    isloading,
+    error,
+  };
+}
+
 export async function getName(userId) {
   if (!userId) return null; // Return null for no user ID
   try {

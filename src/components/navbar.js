@@ -9,20 +9,36 @@ import { Link, useNavigate } from "react-router-dom";
 import AuthProvided from "../lib/auth";
 import { GrAdd } from "react-icons/gr";
 import { useLocation } from "react-router-dom";
-import { getName } from "../lib/helper";
+import { useGetSearchRes } from "../lib/helper";
 import { BsBook } from "react-icons/bs";
+import Loading from "../pages/loading";
 import "../designs/home.css";
 import "../designs/homemindev.css";
 
 const Navbar = () => {
   const [searchT, setSearchT] = useState(false);
   const [onSearch, setOnSearch] = useState("");
+  const [searchings, setSearchings] = useState(false);
   const [toggle, setToggle] = useState(false);
   const { signOutF, userId } = AuthProvided();
-  const nav = useNavigate();
-  const [yourname, setYourname] = useState("");
+  const [searchResult, setSearchResult] = useState([]); // State to store search results
 
+  const nav = useNavigate();
+  const [yourSearch, setYoursearch] = useState("");
   const { pathname } = useLocation();
+
+  const { data, isLoading } = useGetSearchRes(userId, onSearch);
+  if (data.length === 0) {
+    console.log("No search results found");
+  } else {
+    console.log(onSearch);
+    console.log(data);
+    // Update the search result state with the data
+    setSearchResult(data);
+  }
+
+  if (isLoading) return <Loading />;
+
   /*getName(userId)
     .then((userName) => {
       console.log(userName); // Access userName when the promise resolves
@@ -93,12 +109,14 @@ const Navbar = () => {
             pathname !== "/profile" &&
             pathname !== "/about" && (
               <div className={searchT ? "searchBar" : "searchbar"}>
-                <input
-                  type="search"
-                  value={onSearch}
-                  onChange={searching}
-                  placeholder="Search notes..."
-                ></input>
+                <div>
+                  <input
+                    type="search"
+                    value={onSearch}
+                    onChange={searching}
+                    placeholder="Search notes..."
+                  ></input>
+                </div>
               </div>
             )}
         </div>

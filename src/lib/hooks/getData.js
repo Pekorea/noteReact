@@ -24,14 +24,14 @@ export default function useGetData(userid) {
       orderBy("timeStamps", "desc")
       //where("isLocked", "==", false)
     );
-    console.log(subColRef);
+    //console.log(subColRef);
     const unsub = onSnapshot(
       subColRef,
       (snap) => {
         const newArray = [];
 
         snap.forEach((doc) => newArray.push({ ...doc.data(), id: doc.id }));
-        console.log(newArray);
+        //console.log(newArray);
         setNotes(newArray);
         setLoading(false);
         //setRealdata(data.filter((note) => note.isLocked === true));
